@@ -32,6 +32,14 @@ angular.module('kangFu', ['ionic', 'kangFu.controllers'])
     templateUrl: 'templates/sidebar.html',
     controller: 'AppCtrl'
   })
+    .state('app.home', {
+      url: '/home',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/home.html'
+        }
+      }
+    })
 
   .state('app.projects', {
     url: '/projects',
@@ -120,5 +128,5 @@ angular.module('kangFu', ['ionic', 'kangFu.controllers'])
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/projects');
+  $urlRouterProvider.otherwise('/app/home');
 });

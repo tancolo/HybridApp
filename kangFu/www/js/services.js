@@ -5,6 +5,10 @@
 
 angular.module('kangFu.services', ['ngResource'])
   .constant("baseURL","http://localhost:3000/")
-  .factory('projectFactory', ['$resource', 'baseURL', function($resource, baseURL){
-    return $resource(baseURL+"projects/:id",null,  {'update':{method:'PUT' }});
+  .service('projectFactory', ['$resource', 'baseURL', function($resource, baseURL){
+
+    this.getProjects = function() {
+      return $resource(baseURL+"projects/:id",null,  {'update':{method:'PUT' }});
+    };
+
   }]);

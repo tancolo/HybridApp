@@ -1,5 +1,24 @@
 <ion-view view-title="理疗项目">
   <ion-content>
-    <h1>理疗项目</h1>
+    <div class="list card" ng-repeat="project in projects">
+      <div class="item">
+        <h2>白领颈肩康复（黄金30分）
+          <a style="float:right;">¥{{project.price}}</a>
+        </h2>
+        <p style="margin-top: 0.5em">
+         <a class="subdued">
+           <!--<ion-icon name="ion-ios-clock-outline"></ion-icon>30</a>-->
+           <i class="ion ion-ios-clock-outline"></i> {{project.time}}</a>
+         <a class="subdued">
+           <i class="ion ion-ios-heart-outline"></i> {{project.frequency}}人做过</a>
+        </p>
+      </div>
+      <!--<div class="item item-image" style="padding-bottom: 0.5em">-->
+      <div class="item item-image">
+        <img ng-src="{{baseURL+project.image}}" alt="kangFu">
+      </div>
+
+      </div>
+    </div>
   </ion-content>
 </ion-view>

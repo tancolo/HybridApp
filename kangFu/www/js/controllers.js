@@ -41,9 +41,32 @@ angular.module('kangFu.controllers', [])
   };
 })
 
-.controller('projectController', ['$scope, $projectFactory', function($scope, projectFactory){
+.controller('ProjectController', ['$scope', 'projectFactory', 'baseURL', function($scope, projectFactory, baseURL){
+
+  $scope.baseURL = baseURL;
+  $scope.message = "Loading...";
+
+  projectFactory.getProjects().query(
+    function(response) {
+      $scope.projects = response;
+      //console.log("projects: " + $scope.projects);
+    },
+    function(error){
+      $scope.message = "Error: " + error.status + "  " + error.statusText;
+    });
+
+  $scope.project = projectFactory.getProjects().get({id: 0})
+    .$promise.then(
+      function(response){
+        $scope.project = response;
+        console.log($scope.project);
+      },
+      function(error){
+        $scope.message = "Error: " + error.status + "  " + error.statusText;
+      }
+    );
 
 }])
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+
+;

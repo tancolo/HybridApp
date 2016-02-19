@@ -45,7 +45,8 @@ angular.module('kangFu', ['ionic', 'kangFu.controllers', 'kangFu.services'])
     url: '/projects',
     views: {
       'mainContent': {
-        templateUrl: 'templates/projects.html'
+        templateUrl: 'templates/projects.html',
+        controller: 'ProjectController'
       }
     }
   })

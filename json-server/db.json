@@ -1,12 +1,12 @@
 {
-  "medical_packages": [
+  "projects": [
     {
       "id": 0,
       "name": "白领颈肩康复(黄金30分)",
       "image": "images/jingjian01.png",
       "category": "jingjian",
       "label": "Hot",
-      "price": 138.0,
+      "price": "138.0",
       "time": 30,
       "frequency": 0,
       "description": "针对公司职员、白领、亚健康等人群。",
@@ -231,7 +231,7 @@
       "image": "images/naojietan01.png",
       "category": "naojietan",
       "label": "",
-      "price": "188",
+      "price": "188.0",
       "time": 60,
       "frequency": 0,
       "description": "针对截瘫患者运动功能障碍进行康复训练",
@@ -276,7 +276,7 @@
       "image": "images/naojietan02.png",
       "category": "naojietan",
       "label": "",
-      "price": "228",
+      "price": "228.0",
       "time": 90,
       "frequency": 0,
       "description": "针对截瘫患者运动功能障碍进行康复训练",
@@ -561,6 +561,5 @@
       "description": "本人私人机构康复中心工作， 擅长运动发育落后，偏瘫，痉挛型，徐动型PT训练，自闭症感觉统合训练。和患儿能建立很好的互动条件，欢迎咨询"
     }
   ],
-
   "feedback": []
 }

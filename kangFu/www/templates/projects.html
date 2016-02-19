@@ -25,9 +25,36 @@
   </div>
 
   <ion-content>
+    <!--<ion-list>-->
+      <!--<ion-item ng-repeat="project in projects | filter:{category:filtText}"-->
+                <!--href="#/app/projects/{{project.id}}">-->
+        <!--<div class="card">-->
+          <!--<div class="item">-->
+            <!--<h2>{{project.name}}-->
+              <!--<a style="float:right;">¥{{project.price}}</a>-->
+            <!--</h2>-->
+            <!--<p style="margin-top: 0.5em">-->
+              <!--<a class="subdued">-->
+                <!--&lt;!&ndash;<ion-icon name="ion-ios-clock-outline"></ion-icon>30</a>&ndash;&gt;-->
+                <!--<i class="ion ion-ios-clock-outline"></i> {{project.time}}</a>-->
+              <!--<a class="subdued">-->
+                <!--<i class="ion ion-ios-heart-outline"></i> {{project.frequency}}人做过</a>-->
+            <!--</p>-->
+          <!--</div>-->
+          <!--&lt;!&ndash;<div class="item item-image" style="padding-bottom: 0.5em">&ndash;&gt;-->
+          <!--<div class="item item-image">-->
+            <!--<img ng-src="{{baseURL+project.image}}" alt="kangFu">-->
+          <!--</div>-->
+
+        <!--</div>-->
+
+      <!--</ion-item>-->
+    <!--</ion-list>-->
+
     <div class="card" ng-repeat="project in projects | filter:{category:filtText}"
-      href="#/app/projects/{{project.id}}">
-      <div class="item">
+         ui-sref="app.projectdetails({id: project.id})">
+
+      <div class="item" >
         <h2>{{project.name}}
           <a style="float:right;">¥{{project.price}}</a>
         </h2>
@@ -41,10 +68,9 @@
       </div>
       <!--<div class="item item-image" style="padding-bottom: 0.5em">-->
       <div class="item item-image">
-        <img ng-src="{{baseURL+project.image}}" alt="kangFu">
+        <img  ng-src="{{baseURL+project.image}}" alt="kangFu">
       </div>
 
-      </div>
     </div>
   </ion-content>
 </ion-view>

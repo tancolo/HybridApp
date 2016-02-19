@@ -51,7 +51,7 @@ angular.module('kangFu.controllers', [])
   projectFactory.getProjects().query(
     function(response) {
       $scope.projects = response;
-      //console.log("projects: " + $scope.projects);
+      console.log("get the projects");
     },
     function(error){
       $scope.message = "Error: " + error.status + "  " + error.statusText;
@@ -81,21 +81,33 @@ angular.module('kangFu.controllers', [])
   };
 
   $scope.isSelected = function (checkTab) {
+    //console.log("isSelected checkTab: " + checkTab);
     return ($scope.tab === checkTab);
   };
 
-  //$scope.project = projectFactory.getProjects().get({id: 0})
-  //  .$promise.then(
-  //    function(response){
-  //      $scope.project = response;
-  //      console.log($scope.project);
-  //    },
-  //    function(error){
-  //      $scope.message = "Error: " + error.status + "  " + error.statusText;
-  //    }
-  //  );
-
 }])
+
+.controller('ProjectDetailController', ['$scope', '$stateParams', 'projectFactory', 'baseURL',
+  function($scope, $stateParams, projectFactory, baseURL){
+
+    $scope.baseURL = baseURL;
+    $scope.project = {};
+    $scope.message = "Loading ...";
+
+    //get the project with the id
+    $scope.project = projectFactory.getProjects().get({id: parseInt($stateParams.id, 10)})
+      .$promise.then(
+        function(response){
+          $scope.project = response;
+          console.log("get project in ProjectDetailController! " + parseInt($stateParams.id, 10) );
+        },
+        function(err){
+          $scope.message = "Error: " + err.status + " " + err.statusText;
+        }
+      );
+
+  }])
+
 
 
 ;

@@ -44,6 +44,8 @@ angular.module('kangFu.controllers', [])
 .controller('ProjectController', ['$scope', 'projectFactory', 'baseURL', function($scope, projectFactory, baseURL){
 
   $scope.baseURL = baseURL;
+  $scope.tab = 1;
+  $scope.filtText = '';
   $scope.message = "Loading...";
 
   projectFactory.getProjects().query(
@@ -55,16 +57,43 @@ angular.module('kangFu.controllers', [])
       $scope.message = "Error: " + error.status + "  " + error.statusText;
     });
 
-  $scope.project = projectFactory.getProjects().get({id: 0})
-    .$promise.then(
-      function(response){
-        $scope.project = response;
-        console.log($scope.project);
-      },
-      function(error){
-        $scope.message = "Error: " + error.status + "  " + error.statusText;
-      }
-    );
+  //tabs option
+  $scope.select = function (setTab) {
+    $scope.tab = setTab;
+
+    switch(setTab){
+      case 2:
+        $scope.filtText = "jingjian";
+        break;
+      case 3:
+        $scope.filtText = "yuyanzhangai";
+            break;
+      case 4:
+        $scope.filtText = "naojietan";
+            break;
+      case 5:
+        $scope.filtText = "guguanjie";
+            break;
+      default:
+        $scope.filtText = "";
+            break;
+    }
+  };
+
+  $scope.isSelected = function (checkTab) {
+    return ($scope.tab === checkTab);
+  };
+
+  //$scope.project = projectFactory.getProjects().get({id: 0})
+  //  .$promise.then(
+  //    function(response){
+  //      $scope.project = response;
+  //      console.log($scope.project);
+  //    },
+  //    function(error){
+  //      $scope.message = "Error: " + error.status + "  " + error.statusText;
+  //    }
+  //  );
 
 }])
 

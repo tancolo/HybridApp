@@ -112,7 +112,7 @@ angular.module('kangFu.controllers', [])
 
   $scope.baseURL = baseURL;
   $scope.tab = 1;
-  $scope.orderByText = '';
+  $scope.orderByText = "-favourable";
   $scope.message = "Loading...";
 
   //get the healers from the services.js

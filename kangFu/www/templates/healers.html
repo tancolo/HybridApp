@@ -13,7 +13,7 @@
   <ion-content>
 
     <div class="list">
-      <a class="item item-avatar" ng-repeat="healer in healers">
+      <a class="item item-avatar" ng-repeat="healer in healers | orderBy : orderByText">
         <img ng-src="{{baseURL+healer.image}}">
         <button style="float: right;" class="button-rounded">专业级</button>
         <h2>{{healer.name}}&nbsp;&nbsp;<small style="font-size: smaller">{{healer.gender}}</small> </h2>

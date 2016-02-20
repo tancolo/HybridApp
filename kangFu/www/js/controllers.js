@@ -112,7 +112,7 @@ angular.module('kangFu.controllers', [])
 
   $scope.baseURL = baseURL;
   $scope.tab = 1;
-  $scope.filtText = '';
+  $scope.orderByText = '';
   $scope.message = "Loading...";
 
   //get the healers from the services.js
@@ -131,16 +131,16 @@ angular.module('kangFu.controllers', [])
 
     switch(setTab){
       case 1:
-        $scope.filtText = "favourable";
+        $scope.orderByText = "-favourable";
         break;
       case 2:
-        $scope.filtText = "serviced";
+        $scope.orderByText = "-serviced";
         break;
       case 3:
-        $scope.filtText = "grade";
+        $scope.orderByText = "-grade";
         break;
       default:
-        $scope.filtText = "";
+        $scope.orderByText = "";
         break;
     }
   };

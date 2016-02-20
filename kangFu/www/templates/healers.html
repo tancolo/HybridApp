@@ -1,5 +1,28 @@
 <ion-view view-title="理疗师">
+
+  <!-- ionic tabs-->
+  <div class="tabs-striped tabs-color-royal">
+    <div class="tabs">
+      <a class="tab-item" ng-class="{active:isSelected(1)}" ng-click="select(1)">好评</a>
+      <a class="tab-item" ng-class="{active:isSelected(2)}" ng-click="select(2)">人气</a>
+      <a class="tab-item" ng-class="{active:isSelected(3)}" ng-click="select(3)">等级</a>
+    </div>
+  </div>
+
+
   <ion-content>
-    <h1>理疗师</h1>
+
+    <div class="list">
+      <a class="item item-avatar" ng-repeat="healer in healers">
+        <img ng-src="{{baseURL+healer.image}}">
+        <button style="float: right;" class="button-rounded">专业级</button>
+        <h2>{{healer.name}}&nbsp;&nbsp;<small style="font-size: smaller">{{healer.gender}}</small> </h2>
+
+        <p style="width: 60%">{{healer.description}}</p>
+        <p style="color: #007aff;float:right; font-size: 50%;">好评率：{{healer.favourable}}%</p>
+        <p style="font-size: 50%;">已服务{{healer.serviced}}次</p>
+      </a>
+    </div>
+
   </ion-content>
 </ion-view>

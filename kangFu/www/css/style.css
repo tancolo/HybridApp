@@ -1,1 +1,16 @@
 /* Empty. Add your own CSS if you like */
+
+/*"专业级"所用的 圆角button*/
+.button-rounded {
+  display: block !important;
+  width: 60px !important;
+  height: 40px !important;
+  line-height: 30px !important;
+  border: 2px solid white !important;
+  border-radius: 50% !important;
+  color: white !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  font-size: 10px !important;
+  font-weight: bold !important;
+}

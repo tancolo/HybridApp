@@ -108,6 +108,61 @@ angular.module('kangFu.controllers', [])
 
   }])
 
+.controller('HealerController', ['$scope', 'healerFactory', 'baseURL', function($scope, healerFactory, baseURL){
+
+  $scope.baseURL = baseURL;
+  $scope.tab = 1;
+  $scope.filtText = '';
+  $scope.message = "Loading...";
+
+  //get the healers from the services.js
+  healerFactory.getHealers().query(
+    function(response){
+      $scope.healers = response;
+      console.log("get healers from services succeed!");
+    },
+    function(error){
+      $scope.message = "Error: " + error.status + "  " + error.statusText;
+    });
+
+  //tabs option for healers
+  $scope.select = function (setTab) {
+    $scope.tab = setTab;
+
+    switch(setTab){
+      case 1:
+        $scope.filtText = "favourable";
+        break;
+      case 2:
+        $scope.filtText = "serviced";
+        break;
+      case 3:
+        $scope.filtText = "grade";
+        break;
+      default:
+        $scope.filtText = "";
+        break;
+    }
+  };
+
+  $scope.isSelected = function (checkTab) {
+    return ($scope.tab === checkTab);
+  };
+
+  //for testing
+  $scope.healer = healerFactory.getHealers().get({id: 0})
+    .$promise.then(
+      function(response){
+        $scope.healer = response;
+        console.log("healer: " + $scope.healer);
+      },
+      function(err){
+        $scope.message = "Error: " + err.status + " " + err.statusText;
+      }
+    );
+
+
+}])
 
 
 ;

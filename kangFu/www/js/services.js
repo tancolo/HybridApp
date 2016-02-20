@@ -11,4 +11,18 @@ angular.module('kangFu.services', ['ngResource'])
       return $resource(baseURL+"projects/:id",null,  {'update':{method:'PUT' }});
     };
 
-  }]);
+  }])
+
+  .factory('healerFactory', ['$resource', 'baseURL', function($resource, baseURL){
+
+    var healerFac = {};
+
+    healerFac.getHealers = function(){
+      return $resource(baseURL+"healers/:id", null, {'update':{method:'PUT'}});
+    };
+
+    return healerFac;
+  }])
+
+;
+

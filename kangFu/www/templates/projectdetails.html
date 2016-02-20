@@ -1,5 +1,48 @@
 <ion-view view-title="项目详情">
   <ion-content>
-    <h1>项目详情</h1>
+    <!--ionic card-->
+    <div class="card">
+
+      <div class="item item-image">
+        <img  src="../img/project_title.png" alt="kangFu">
+      </div>
+
+      <div class="item item-image">
+        <img  ng-src="{{baseURL+project.image}}" alt="kangFu">
+      </div>
+
+      <div class="item" >
+        <h2>{{project.name}}
+          <a style="float:right;">¥{{project.price}}元/次</a>
+        </h2>
+        <p style="margin-top: 0.5em">
+          <a class="subdued">
+            <i class="ion ion-ios-clock-outline"></i> {{project.time}}</a>
+          <a class="subdued">
+            <i class="ion ion-ios-heart-outline"></i> {{project.frequency}}人体验过</a>
+        </p>
+      </div>
+
+      <div class="item item-text-wrap" >
+        <blockquote>
+          <p>项目内容</p>
+        </blockquote>
+        <p>{{project.description}}</p>
+
+        <blockquote>
+          <p>禁忌症状</p>
+        </blockquote>
+        <p>{{project.symptom}}</p>
+
+        <blockquote>
+          <p>下单须知</p>
+        </blockquote>
+        <p>{{project.notes}}</p>
+      </div>
+    </div>
   </ion-content>
+
+  <div class="bar bar-footer bar-royal" style="height: 3em">
+    <div class="title">马上预约</div>
+  </div>
 </ion-view>

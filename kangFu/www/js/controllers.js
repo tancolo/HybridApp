@@ -149,20 +149,40 @@ angular.module('kangFu.controllers', [])
     return ($scope.tab === checkTab);
   };
 
-  //for testing
-  $scope.healer = healerFactory.getHealers().get({id: 0})
-    .$promise.then(
-      function(response){
-        $scope.healer = response;
-        console.log("healer: " + $scope.healer);
-      },
-      function(err){
-        $scope.message = "Error: " + err.status + " " + err.statusText;
-      }
-    );
-
-
 }])
 
+  .controller('HealerDetailController', ['$scope', '$stateParams', 'healerFactory', 'baseURL',
+    function($scope, $stateParams, healerFactory, baseURL){
+
+      $scope.baseURL = baseURL;
+      $scope.healer = {};
+      $scope.message = "Loading ...";
+
+      //for testing
+      $scope.healer = healerFactory.getHealers().get({id: parseInt($stateParams.id, 10)})
+        .$promise.then(
+          function(response){
+            $scope.healer = response;
+            console.log("get healer in HealerDetailController! " + parseInt($stateParams.id, 10) );
+          },
+          function(err){
+            $scope.message = "Error: " + err.status + " " + err.statusText;
+          }
+        );
+
+  }])
+
+  .directive('backImg', function(){
+    return function(scope, element, attrs){
+      var url = attrs.backImg;
+      var content = element.find('a');
+      //var content = element.children('div.item-content');
+      console.log("backImg: " + url + ", content: " + content) ;
+      content.css({
+        'background-image': 'url(' + url +')',
+        'background-size' : 'cover'
+      });
+    };
+  })
 
 ;

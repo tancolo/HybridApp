@@ -73,7 +73,8 @@ angular.module('kangFu', ['ionic', 'kangFu.controllers', 'kangFu.services'])
       url: '/healers/:id',
       views: {
         'mainContent': {
-          templateUrl: 'templates/healerdetails.html'
+          templateUrl: 'templates/healerdetails.html',
+          controller: 'HealerDetailController'
         }
       }
     })

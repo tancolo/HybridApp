@@ -1,7 +1,7 @@
 <ion-view view-title="理疗师">
 
   <!-- ionic tabs-->
-  <div class="tabs-striped tabs-color-royal">
+  <div class="tabs-striped tabs-color-royal" >
     <div class="tabs">
       <a class="tab-item" ng-class="{active:isSelected(1)}" ng-click="select(1)">好评</a>
       <a class="tab-item" ng-class="{active:isSelected(2)}" ng-click="select(2)">人气</a>
@@ -13,7 +13,9 @@
   <ion-content>
 
     <div class="list">
-      <a class="item item-avatar" ng-repeat="healer in healers | orderBy : orderByText">
+      <a class="item item-avatar" ng-repeat="healer in healers | orderBy : orderByText"
+      ui-sref="app.healerdetails({id: healer.id})">
+
         <img ng-src="{{baseURL+healer.image}}">
         <button style="float: right;" class="button-rounded">专业级</button>
         <h2>{{healer.name}}&nbsp;&nbsp;<small style="font-size: smaller">{{healer.gender}}</small> </h2>

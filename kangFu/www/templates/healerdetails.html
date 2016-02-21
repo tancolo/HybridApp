@@ -1,5 +1,23 @@
-<ion-view view-title="Search">
+<ion-view view-title="治疗师">
   <ion-content>
-    <h1>Search</h1>
+    <!--list item-->
+    <div class="list">
+      <div class="item item-avatar-left" style="height: 150px;background-image: url(../img/bg_doctor_detail.jpg); background-size: 100% 100%;">
+        <img style="margin-top: 3em" ng-src="{{baseURL+healer.image}}">
+        <button style="float: right;margin-top: 3em" class="button-rounded-yellow">专业级</button>
+        <h2 style="margin-top: 3em;color: white;">{{healer.name}}&nbsp;&nbsp;<small style="font-size: smaller;color: white;">{{healer.gender}}</small> </h2>
+        <p style="font-size: 50%;color: white">已服务{{healer.serviced}}次</p>
+      </div>
+    </div>
+
+    <!--top tab-->
+    <div class="tabs-striped tabs-color-royal" style="position: relative;">
+      <div class="tabs">
+        <a class="tab-item" ng-class="{active:isSelected(1)}" ng-click="select(1)">所有项目</a>
+        <a class="tab-item" ng-class="{active:isSelected(2)}" ng-click="select(2)">颈肩腰腿</a>
+      </div>
+    </div>
+
   </ion-content>
+
 </ion-view>

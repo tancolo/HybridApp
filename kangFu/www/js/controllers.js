@@ -151,14 +151,14 @@ angular.module('kangFu.controllers', [])
 
 }])
 
-  .controller('HealerDetailController', ['$scope', '$stateParams', 'healerFactory', 'baseURL',
-    function($scope, $stateParams, healerFactory, baseURL){
+  .controller('HealerDetailController', ['$scope', '$stateParams', 'healerFactory', 'baseURL', 'projectFactory',
+    function($scope, $stateParams, healerFactory, baseURL, projectFactory){
 
       $scope.baseURL = baseURL;
       $scope.healer = {};
       $scope.message = "Loading ...";
 
-      //for testing
+      //get healer from server
       $scope.healer = healerFactory.getHealers().get({id: parseInt($stateParams.id, 10)})
         .$promise.then(
           function(response){
@@ -169,6 +169,26 @@ angular.module('kangFu.controllers', [])
             $scope.message = "Error: " + err.status + " " + err.statusText;
           }
         );
+
+      projectFactory.getProjects().query(
+        function(response) {
+          $scope.projects = response;
+          console.log("get the projects");
+        },
+        function(error){
+          $scope.message = "Error: " + error.status + "  " + error.statusText;
+        });
+
+      //for testing project info
+      //projectFactory.getProjects().get({id: 0})
+      //  .$promise.then(
+      //  function(response) {
+      //    $scope.project = response;
+      //    console.log("get the project...");
+      //  },
+      //  function(error){
+      //    $scope.message = "Error: " + error.status + "  " + error.statusText;
+      //  });
 
   }])
 

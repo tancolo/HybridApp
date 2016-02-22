@@ -506,12 +506,18 @@
       "serviced": 0,
       "favourable": 0,
       "description": "2014年11月至今于四川省地质医院康复科任康复治疗师，主要从事成人偏瘫的现代康复，擅长各种运动疗法，平衡训练，肌肉力量训练等，2013年10月至2014年10月与四川省八一康复中心进修学习，于成人PT、成人OT、儿童PT、儿童OT、语言训练室、针灸治疗室等进修学习。",
-      "specialized":[
+      "specialized_field": [
         {
-          "specialized1": "截瘫专长",
-          "specialized2": "神经系统康复（中风）",
-          "specialized3": "脑瘫专长",
-          "specialized4": "颈肩腰腿疼康复专长"
+          "specialized": "截瘫专长"
+        },
+        {
+          "specialized": "神经系统康复（中风）"
+        },
+        {
+          "specialized": "脑瘫专长"
+        },
+        {
+          "specialized": "颈肩腰腿疼康复专长"
         }
       ]
     },
@@ -524,12 +530,15 @@
       "serviced": 7,
       "favourable": 70,
       "description": "毕业于武汉大学临床康复医学专业，从事成人物理治疗（PT）和作业治疗（OT）10年，擅长神经系统疾病的康复。曾与四川省成都军区总医院康复医学科工作以及学习，后执业于北京海军医院治疗康复中心，担任TP长一职。2011年于中国康复研究中心进修认知障碍评定与康复治疗技。",
-      "specialized":[
+      "specialized_field": [
         {
-          "specialized1": "截瘫专长",
-          "specialized2": "骨折术后康复（骨科）",
-          "specialized3": "神经系统康复（中风）",
-          "specialized4": ""
+          "specialized": "截瘫专长"
+        },
+        {
+          "specialized": "骨折术后康复（骨科）"
+        },
+        {
+          "specialized": "神经系统康复（中风）"
         }
       ]
     },
@@ -542,12 +551,18 @@
       "serviced": 35,
       "favourable": 80,
       "description": "康复医师，成都中医药大学硕士研究生，曾执业与四川省人民医院川刚康复中心，赴香港威尔士亲王医院进修，现任四川省康复医院门诊部（成华区）主任！",
-      "specialized":[
+      "specialized_field": [
         {
-          "specialized1": "骨折术后康复（骨科）",
-          "specialized2": "截瘫专长",
-          "specialized3": "神经系统康复（中风）",
-          "specialized4": "颈肩腰腿疼康复专长"
+          "specialized": "骨折术后康复（骨科）"
+        },
+        {
+          "specialized": "截瘫专长"
+        },
+        {
+          "specialized": "神经系统康复（中风）"
+        },
+        {
+          "specialized": "颈肩腰腿疼康复专长"
         }
       ]
     },
@@ -560,14 +575,24 @@
       "serviced": 41,
       "favourable": 100,
       "description": "工作经验三年，再四川省人民医院实习一年，再东虹老年医院工作至今，熟悉各种现代康复治疗技术，擅长功能恢复，成人抗毒，骨折术后等。",
-      "specialized":[
+      "specialized_field": [
         {
-          "specialized1": "骨折术后康复（骨科）",
-          "specialized2": "神经系统康复（中风）",
-          "specialized3": "其他专长",
-          "specialized4": "截瘫专长",
-          "specialized5": "颈肩腰腿疼康复专长",
-          "specialized6": "语言及吞咽障碍专长"
+          "specialized": "骨折术后康复（骨科）"
+        },
+        {
+          "specialized": "神经系统康复（中风）"
+        },
+        {
+          "specialized": "其他专长"
+        },
+        {
+          "specialized": "截瘫专长"
+        },
+        {
+          "specialized": "颈肩腰腿疼康复专长"
+        },
+        {
+          "specialized": "语言及吞咽障碍专长"
         }
       ]
     },
@@ -580,15 +605,27 @@
       "serviced": 0,
       "favourable": 50,
       "description": "毕业于成都中医药大学康复治疗专业，从事康复治疗2年，对脑梗赛后遗症，帕金森，偏瘫，颈椎病，腰间盘突出症等骨关节病的治疗有丰富的临床经验。",
-      "specialized":[
+      "specialized_field": [
         {
-          "specialized1": "脑瘫专长",
-          "specialized2": "语言及吞咽障碍专长",
-          "specialized3": "颈肩腰腿疼康复专长",
-          "specialized4": "其他专长",
-          "specialized5": "骨折术后康复（骨科）",
-          "specialized6": "截瘫专长",
-          "specialized7": "神经系统康复（中风）"
+          "specialized": "脑瘫专长"
+        },
+        {
+          "specialized": "语言及吞咽障碍专长"
+        },
+        {
+          "specialized": "颈肩腰腿疼康复专长"
+        },
+        {
+          "specialized": "其他专长"
+        },
+        {
+          "specialized": "骨折术后康复（骨科）"
+        },
+        {
+          "specialized": "截瘫专长"
+        },
+        {
+          "specialized": "神经系统康复（中风）"
         }
       ]
     },
@@ -601,9 +638,9 @@
       "serviced": 0,
       "favourable": 30,
       "description": "8年工作经验，曾经在北京，成都的三级医院从事康复治疗工作。擅长卒中后的偏瘫和脑外伤的康复。《让脑瘫宝宝走起来》编委。曾经获得中国康复医学会会长的个人题词。参加个云南鲁甸地震康复项目。",
-      "specialized":[
+      "specialized_field": [
         {
-          "specialized1": "神经系统康复（中风）"
+          "specialized": "神经系统康复（中风）"
         }
       ]
     },
@@ -616,9 +653,9 @@
       "serviced": 0,
       "favourable": 20,
       "description": "本人私人机构康复中心工作， 擅长运动发育落后，偏瘫，痉挛型，徐动型PT训练，自闭症感觉统合训练。和患儿能建立很好的互动条件，欢迎咨询",
-      "specialized":[
+      "specialized_field": [
         {
-          "specialized1": "脑瘫专长"
+          "specialized": "脑瘫专长"
         }
       ]
     }

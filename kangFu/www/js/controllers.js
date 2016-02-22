@@ -157,13 +157,16 @@ angular.module('kangFu.controllers', [])
       $scope.baseURL = baseURL;
       $scope.healer = {};
       $scope.message = "Loading ...";
+      $scope.tab = 1;
+      $scope.showTab1 = true;
+      $scope.showTab2 = false;
 
       //get healer from server
       $scope.healer = healerFactory.getHealers().get({id: parseInt($stateParams.id, 10)})
         .$promise.then(
           function(response){
             $scope.healer = response;
-            console.log("get healer in HealerDetailController! " + parseInt($stateParams.id, 10) );
+            console.log("get healer in HealerDetailController! " + parseInt($stateParams.id, 10) + ", length = " + $scope.healer.specialized_field.length);
           },
           function(err){
             $scope.message = "Error: " + err.status + " " + err.statusText;
@@ -178,6 +181,28 @@ angular.module('kangFu.controllers', [])
         function(error){
           $scope.message = "Error: " + error.status + "  " + error.statusText;
         });
+
+      //tabs option
+      $scope.select = function (setTab) {
+        $scope.tab = setTab;
+
+        switch(setTab){
+          case 1:
+            $scope.showTab1 = true;
+            $scope.showTab2 = false;
+            break;
+          case 2:
+            $scope.showTab1 = false;
+            $scope.showTab2 = true;
+            break;
+          default:
+            break;
+        }
+      };
+
+      $scope.isSelected = function (checkTab) {
+        return ($scope.tab === checkTab);
+      };
 
       //for testing project info
       //projectFactory.getProjects().get({id: 0})

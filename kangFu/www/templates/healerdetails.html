@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <ion-list>
+    <ion-list ng-if="showTab1">
       <ion-item ng-repeat="project in projects">
 
         <label><input type="radio" ng-value="specialValue">
@@ -41,6 +41,24 @@
       </ion-item>
 
     </ion-list>
+
+    <!--Healer info-->
+    <div ng-if="showTab2" class="item item-text-wrap" style="margin-bottom:40px !important;">
+      <blockquote>
+        <p><strong>擅长领域</strong></p>
+      </blockquote>
+      <button style="margin: 0.5em" class="button  button-small button-positive " ng-repeat="spec in healer.specialized_field">{{spec.specialized}}</button>
+
+      <blockquote>
+        <p><strong>个人简介</strong></p>
+      </blockquote>
+      <p>{{healer.description}}</p>
+    </div>
+
   </ion-content>
+
+  <div class="bar bar-footer bar-royal" style="height: 3em">
+    <div class="title">马上预约</div>
+  </div>
 
 </ion-view>

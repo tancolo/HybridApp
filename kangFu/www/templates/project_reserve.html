@@ -1,0 +1,127 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-royal">
+    <h1 class="title">预约详情</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeReserve()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form id="reserveForm" name="reserveForm" ng-submit="doReserve()">
+      <div class="list">
+        <!--name and address labels  -->
+        <div class="item item-input-inset">
+          <label style="width: 50%;" class="item-floating-label">
+            <span class="input-label">姓名</span>
+            <input type="text" placeholder="姓名" ng-model="reservation.name">
+          </label>
+          <label style="width: 50%;" class="item-floating-label">
+            <span class="input-label">电话</span>
+            <input type="text" placeholder="电话" ng-model="reservation.tel">
+          </label>
+        </div>
+
+        <!--address input-->
+        <label class="item item-input item-text-wrap">
+          <input type="text" placeholder="地址" ng-model="reservation.address">
+        </label>
+
+        <!--healer name -->
+        <div class="item item-input-inset">
+        <label style="width: 80%">
+          康复治疗师 {{healer.name}}
+        </label>
+          <label style="width: 20%;color:red;">+ ￥0.0元</label>
+        </div>
+
+        <!--healer grade-->
+        <label class="item item-input">
+          <button class="button-rounded-yellow">专业级</button>
+        </label>
+
+        <!--service date-->
+        <label class="item item-input">
+          <span class="input-label">服务时间</span>
+          <input type="date" ng-model="reservation.date">
+        </label>
+
+        <!--service Time input -->
+        <label class="item item-input">
+          <span class="input-label">Time</span>
+          <input type="time" ng-model="reservation.time"
+                 name="reservetime" min="11:00:00" max="21:00:00">
+        </label>
+
+        <ion-list>
+          <ion-item>
+            <label>
+              <img style="vertical-align:middle;" class="image-rounded" ng-src="{{baseURL + reservation.project.image}}">
+            </label>
+
+            <div style="float: right;width: 14em;">
+              <h2 style="font-size: 90%;margin-top: 1em;">{{reservation.project.name}}</h2>
+              <p style="margin-top: 1em">
+                <a class="subdued" style="color: coral"> ¥&nbsp;{{reservation.project.price}}元</a>
+                <a class="subdued" style="float: right">
+                  <i class="ion ion-ios-clock-outline"></i> {{reservation.project.time}}分钟</a>
+              </p>
+            </div>
+
+          </ion-item>
+        </ion-list>
+
+        <div class="list list-inset">
+          <!--remarks info-->
+          <label class="item item-input">
+            <textarea ng-model="reservation.remarks" placeholder="备注信息"> </textarea>
+          </label>
+
+          <label class="item">
+            优惠券
+            <small style="color: cornflowerblue;">0 张</small>
+          </label>
+
+          <!--points deducted-->
+          <label class="item">
+            积分抵扣
+            <small style="color: cornflowerblue;">120积分可用</small>
+          </label>
+
+          <label class="item item-input-inset">
+            <span>使用</span>
+            <input type="text" style="width: 20%;border: 1px solid navajowhite;padding-left: 0.5em" placeholder="0.0">
+            <span>积分,抵</span> <span style="color: red">¥&nbsp;0.00元</span>
+          </label>
+
+        </div>
+
+        <!--order info-->
+        <div class="item">
+          <p>
+            <a class="subdued" style="color: black; float: right;"> ¥&nbsp;{{reservation.project.price}}元</a>
+            <a class="subdued">订单金额</a>
+          </p>
+
+          <p>
+            <a class="subdued" style="color: red; float: right;"> -¥&nbsp;0.00元</a>
+            <a class="subdued">优惠</a>
+          </p>
+
+          <p>
+            <a class="subdued" style="color: red; float: right;"> -¥&nbsp;0.00元</a>
+            <a class="subdued">积分</a>
+          </p>
+        </div>
+
+        <!--reserve submit -->
+        <div class="item item-input-inset">
+          <p style="width: 80%;">
+            <a class="subdued">实付</a>
+            <a class="subdued" style="color: red;"> &nbsp;¥{{reservation.project.price}}元</a>
+          </p>
+          <button style="width: 20%" class="button button-small button-positive" type="submit">提交订单</button>
+        </div>
+
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -22,15 +22,17 @@
     <ion-list ng-if="showTab1">
       <ion-item ng-repeat="project in projects">
 
-        <label><input type="radio" ng-value="specialValue">
+        <label><input type="radio" name="projectOption" ng-model="reservation.project"
+                  ng-value="{{project}}">
           <img style="vertical-align:middle;" class="image-rounded" ng-src="{{baseURL+project.image}}">
         </label>
 
           <div style="float: right;width: 14em;">
             <a ui-sref="app.projectdetails({id: project.id})" style="font-size: 90%; float: right;text-decoration:none">&nbsp;&nbsp;查看详情</a>
           <h2 style="font-size: 90%;width: 10em;overflow: hidden">{{project.name}}</h2>
+          <p>ID: {{reservation.project.id}}</p>
 
-          <p class="subdued" style="height: 3em;font-size: 80%;">{{project.description}}</p>
+          <p class="subdued item-text-wrap" style="height: 3em;font-size: 80%;">{{project.description}}</p>
           <p style="margin-top: 1.5em">
             <a class="subdued">
               <i class="ion ion-ios-clock-outline"></i> {{project.time}}分钟</a>
@@ -58,7 +60,7 @@
   </ion-content>
 
   <div class="bar bar-footer bar-royal" style="height: 3em">
-    <div class="title">马上预约</div>
+    <div ng-click="reserve()" class="title">马上预约</div>
   </div>
 
 </ion-view>

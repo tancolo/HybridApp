@@ -151,8 +151,9 @@ angular.module('kangFu.controllers', [])
 
 }])
 
-  .controller('HealerDetailController', ['$scope', '$stateParams', 'healerFactory', 'baseURL', 'projectFactory',
-    function($scope, $stateParams, healerFactory, baseURL, projectFactory){
+  .controller('HealerDetailController', ['$scope', '$stateParams', 'healerFactory',
+    'baseURL', 'projectFactory', '$ionicModal',
+    function($scope, $stateParams, healerFactory, baseURL, projectFactory, $ionicModal){
 
       $scope.baseURL = baseURL;
       $scope.healer = {};
@@ -214,6 +215,34 @@ angular.module('kangFu.controllers', [])
       //  function(error){
       //    $scope.message = "Error: " + error.status + "  " + error.statusText;
       //  });
+
+      // Form data for the reserve modal
+      $scope.reservation = {};
+      $scope.reservation.project = {};
+
+      // Create the reserve modal that we will use later
+      $ionicModal.fromTemplateUrl('templates/project_reserve.html', {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.reserveform = modal;
+      });
+
+      // Triggered in the reserve modal to close it
+      $scope.closeReserve = function() {
+        $scope.reserveform.hide();
+      };
+
+      // Open the reserve modal
+      $scope.reserve = function() {
+        $scope.reserveform.show();
+        console.log("project ==>: " + JSON.stringify($scope.reservation.project));
+      };
+
+      // Perform the reserve action when the user submits the login form
+      $scope.doReserve = function() {
+        console.log('Doing Reserve', $scope.reservation);
+
+      };
 
   }])
 

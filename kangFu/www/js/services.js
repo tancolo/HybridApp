@@ -24,5 +24,13 @@ angular.module('kangFu.services', ['ngResource'])
     return healerFac;
   }])
 
+  .service('reserveFactory', ['$resource', 'baseURL', function($resource,baseURL) {
+
+    this.getReserves = function() {
+      return $resource(baseURL + "reserve/:id", null, {'save': {method: 'POST'}});
+    }
+
+  }])
+
 ;
 

@@ -152,8 +152,8 @@ angular.module('kangFu.controllers', [])
 }])
 
   .controller('HealerDetailController', ['$scope', '$stateParams', 'healerFactory',
-    'baseURL', 'projectFactory', '$ionicModal',
-    function($scope, $stateParams, healerFactory, baseURL, projectFactory, $ionicModal){
+    'baseURL', 'projectFactory', '$ionicModal', '$timeout','reserveFactory',
+    function($scope, $stateParams, healerFactory, baseURL, projectFactory, $ionicModal, $timeout, reserveFactory){
 
       $scope.baseURL = baseURL;
       $scope.healer = {};
@@ -235,13 +235,23 @@ angular.module('kangFu.controllers', [])
       // Open the reserve modal
       $scope.reserve = function() {
         $scope.reserveform.show();
+
+        //save the healer info to reserve
+        $scope.reservation.healer = $scope.healer;
         console.log("project ==>: " + JSON.stringify($scope.reservation.project));
+        console.log("healer ==>: " + JSON.stringify($scope.reservation.healer));
       };
 
       // Perform the reserve action when the user submits the login form
       $scope.doReserve = function() {
         console.log('Doing Reserve', $scope.reservation);
 
+        reserveFactory.getReserves().save($scope.reservation);
+
+        //模拟网络超时 1s钟关闭model
+        $timeout(function() {
+          $scope.closeReserve();
+        }, 1000);
       };
 
   }])

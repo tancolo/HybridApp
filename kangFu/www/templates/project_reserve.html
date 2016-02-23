@@ -6,23 +6,26 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form id="reserveForm" name="reserveForm" ng-submit="doReserve()">
+    <form id="reserveForm" name="reserveForm" ng-submit="doReserve()" novalidate>
       <div class="list">
         <!--name and address labels  -->
         <div class="item item-input-inset">
           <label style="width: 50%;" class="item-floating-label">
             <span class="input-label">姓名</span>
-            <input type="text" placeholder="姓名" ng-model="reservation.name">
+            <input type="text" placeholder="姓名" ng-model="reservation.name" id="yourname" name="yourname" required>
+            <span ng-show="reserveForm.yourname.$error.required && !reserveForm.yourname.$pristine" style="color: red;">姓名不能为空</span>
           </label>
           <label style="width: 50%;" class="item-floating-label">
             <span class="input-label">电话</span>
-            <input type="text" placeholder="电话" ng-model="reservation.tel">
+            <input type="text" placeholder="电话" ng-model="reservation.tel" id="telephone" name="telephone" required>
+            <span ng-show="reserveForm.telephone.$error.required && !reserveForm.telephone.$pristine" style="color: red;">号码不能为空</span>
           </label>
         </div>
 
         <!--address input-->
         <label class="item item-input item-text-wrap">
-          <input type="text" placeholder="地址" ng-model="reservation.address">
+          <input type="text" placeholder="地址" ng-model="reservation.address" id="address" name="address" required>
+          <span ng-show="reserveForm.address.$error.required && !reserveForm.address.$pristine" style="color: red;">地址不能为空</span>
         </label>
 
         <!--healer name -->
@@ -35,20 +38,22 @@
 
         <!--healer grade-->
         <label class="item item-input">
-          <button class="button-rounded-yellow">专业级</button>
+          <a class="button-rounded-yellow">专业级</a>
         </label>
 
         <!--service date-->
         <label class="item item-input">
           <span class="input-label">服务时间</span>
-          <input type="date" ng-model="reservation.date">
+          <input type="date" ng-model="reservation.date" id="orderdate" name="orderdate" required>
+          <span ng-show="reserveForm.orderdate.$error.required && !reserveForm.orderdate.$pristine" style="color: red;">选定日期</span>
         </label>
 
         <!--service Time input -->
         <label class="item item-input">
           <span class="input-label">Time</span>
-          <input type="time" ng-model="reservation.time"
-                 name="reservetime" min="11:00:00" max="21:00:00">
+          <input type="time" ng-model="reservation.time" id="reservetime"
+                 name="reservetime" min="11:00:00" max="21:00:00" required>
+          <span ng-show="reserveForm.reservetime.$error.required && !reserveForm.reservetime.$pristine" style="color: red;">选定时间</span>
         </label>
 
         <ion-list>
@@ -118,7 +123,7 @@
             <a class="subdued">实付</a>
             <a class="subdued" style="color: red;"> &nbsp;¥{{reservation.project.price}}元</a>
           </p>
-          <button style="width: 20%" class="button button-small button-positive" type="submit">提交订单</button>
+          <button style="width: 20%" class="button button-small button-positive" type="submit" ng-disabled="reserveForm.$invalid">提交订单</button>
         </div>
 
       </div>

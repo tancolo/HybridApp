@@ -790,6 +790,60 @@
       "date": "2016-02-22T16:00:00.000Z",
       "time": "1970-01-01T04:11:00.000Z",
       "id": 2
+    },
+    {
+      "project": {
+        "id": 4,
+        "name": "小儿认知言语障碍康复训练",
+        "image": "images/yuyanzhangai02.png",
+        "category": "yuyanzhangai",
+        "label": "",
+        "price": "158.0",
+        "time": 45,
+        "frequency": 0,
+        "description": "针对患有语言认知障碍的儿童患者训练",
+        "symptom": "儿童先天发育不足，或意外导致神经受损。",
+        "notes": "训练姿势：坐位。 训练方法：通过引导模仿发音、增加词汇量，提高儿童对语言的理解、引导及刺激表达等训练方式，提升患者认知能力。",
+        "comments": [
+          {
+            "rating": 5,
+            "comment": "值得一试",
+            "author": "张三",
+            "date": "2012-10-16T17:57:28.556094Z"
+          },
+          {
+            "rating": 4,
+            "comment": "师傅推拿的很好！",
+            "author": "李四",
+            "date": "2014-09-05T17:57:28.556094Z"
+          },
+          {
+            "rating": 3,
+            "comment": "项目很不错！",
+            "author": "张一山",
+            "date": "2015-02-13T17:57:28.556094Z"
+          },
+          {
+            "rating": 4,
+            "comment": "功夫了得!",
+            "author": "张二山",
+            "date": "2013-12-02T17:57:28.556094Z"
+          },
+          {
+            "rating": 2,
+            "comment": "想去预约了！",
+            "author": "王五",
+            "date": "2011-12-02T17:57:28.556094Z"
+          }
+        ]
+      },
+      "healer": {},
+      "name": "baidu",
+      "tel": 12345,
+      "address": "baijing",
+      "date": "2016-02-23T16:00:00.000Z",
+      "time": "1970-01-01T06:12:00.000Z",
+      "id": 3
     }
   ],
   "feedback": []

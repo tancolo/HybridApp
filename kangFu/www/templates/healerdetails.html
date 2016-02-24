@@ -28,13 +28,13 @@
           <img style="vertical-align:middle;" class="image-rounded" ng-src="{{baseURL+project.image}}">
         </label>
 
-          <div style="float: right;width: 14em;">
+          <div style="float: right;width: 60%">
             <a ui-sref="app.projectdetails({id: project.id})" style="font-size: 90%; float: right;text-decoration:none">&nbsp;&nbsp;查看详情</a>
-          <h2 style="font-size: 90%;width: 10em;overflow: hidden">{{project.name}}</h2>
+          <h2 style="font-size: 90%;">{{project.name}}</h2>
           <!--<p>ID: {{reservation.project.id}}</p>-->
 
-          <p class="subdued item-text-wrap" style="height: 3em;font-size: 80%;">{{project.description}}</p>
-          <p style="margin-top: 1.5em">
+          <p class="subdued" style="height: 3em;font-size: 80%;">{{project.description}}</p>
+          <p style="margin-top: 1em">
             <a class="subdued">
               <i class="ion ion-ios-clock-outline"></i> {{project.time}}分钟</a>
             <a class="subdued" style="float:right;color: coral"> ¥&nbsp;{{project.price}}</a>

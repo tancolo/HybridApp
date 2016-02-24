@@ -315,8 +315,8 @@ angular.module('kangFu.controllers', [])
 
   }])
 
-  .controller('FavoritesController', ['$scope', 'healerFactory', 'favoriteFactory', 'baseURL',
-    function($scope, healerFactory, favoriteFactory, baseURL){
+  .controller('FavoritesController', ['$scope', 'healerFactory', 'favoriteFactory', 'baseURL','$ionicPopup',
+    function($scope, healerFactory, favoriteFactory, baseURL, $ionicPopup){
 
       $scope.baseURL = baseURL;
       $scope.orderByText = "-serviced";//用于排列,按照服务人次排序
@@ -342,8 +342,20 @@ angular.module('kangFu.controllers', [])
       };
 
       $scope.deleteFavorite = function (index) {
-        console.log(" delete favorite index : " + index);
-        favoriteFactory.deleteFromFavorites(index);
+
+        var confirmPopup = $ionicPopup.confirm({
+          title: '删除',
+          template: '确认删除该治疗师？'
+        });
+
+        confirmPopup.then(function(res){
+          if (res) {
+            console.log('Ok to delete');
+            favoriteFactory.deleteFromFavorites(index);
+          } else {
+            console.log('Delete Cancel');
+          }
+        });
 
         $scope.shouldShowDelete = false;
       };

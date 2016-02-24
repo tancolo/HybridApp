@@ -344,8 +344,10 @@ angular.module('kangFu.controllers', [])
       $scope.deleteFavorite = function (index) {
 
         var confirmPopup = $ionicPopup.confirm({
-          title: '删除',
-          template: '确认删除该治疗师？'
+          title: '删 除',
+          template: '确认删除该治疗师？',
+          okText: '确定',
+          cancelText: '取消'
         });
 
         confirmPopup.then(function(res){

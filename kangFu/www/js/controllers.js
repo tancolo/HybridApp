@@ -224,7 +224,6 @@ angular.module('kangFu.controllers', [])
             console.log('Show error!');
           }
         );
-
     });
 
   };
@@ -345,7 +344,8 @@ angular.module('kangFu.controllers', [])
   }])
 
   .controller('FavoritesController', ['$scope', 'healerFactory', 'favoriteFactory', 'baseURL','$ionicPopup',
-    function($scope, healerFactory, favoriteFactory, baseURL, $ionicPopup){
+    '$ionicPlatform', '$cordovaVibration',
+    function($scope, healerFactory, favoriteFactory, baseURL, $ionicPopup, $ionicPlatform, $cordovaVibration){
 
       $scope.baseURL = baseURL;
       $scope.orderByText = "-serviced";//用于排列,按照服务人次排序
@@ -383,6 +383,12 @@ angular.module('kangFu.controllers', [])
           if (res) {
             console.log('Ok to delete');
             favoriteFactory.deleteFromFavorites(index);
+
+            //$ionicPlatform ready and $cordovaVibration
+            $ionicPlatform.ready(function(){
+              $cordovaVibration.vibrate(1000);
+            });
+
           } else {
             console.log('Delete Cancel');
           }

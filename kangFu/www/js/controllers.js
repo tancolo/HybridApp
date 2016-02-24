@@ -341,6 +341,13 @@ angular.module('kangFu.controllers', [])
         console.log($scope.shouldShowDelete);
       };
 
+      $scope.deleteFavorite = function (index) {
+        console.log(" delete favorite index : " + index);
+        favoriteFactory.deleteFromFavorites(index);
+
+        $scope.shouldShowDelete = false;
+      };
+
   }])
 
   .filter('favoriteFilter', function () {

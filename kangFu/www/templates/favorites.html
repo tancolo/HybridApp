@@ -9,7 +9,7 @@
   <ion-content>
     <ion-list show-delete="shouldShowDelete">
       <ion-item class="item-avatar" ng-repeat="healer in healers | favoriteFilter:favorites | orderBy : orderByText"
-                ui-sref="app.healerdetails({id: healer.id})" class="item-thumbnail-left" >
+                ui-sref="app.healerdetails({id: healer.id})" >
 
         <img ng-src="{{baseURL+healer.image}}">
         <button style="float: right;" class="button-rounded">专业级</button>
@@ -21,7 +21,7 @@
 
         <!-- delete option -->
         <ion-delete-button class="ion-minus-circled"
-                           ng-click="deleteFavorite(dish.id)">
+                           ng-click="deleteFavorite(healer.id)">
         </ion-delete-button>
 
       </ion-item>

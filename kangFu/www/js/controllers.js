@@ -193,11 +193,22 @@ angular.module('kangFu.controllers', [])
     return ($scope.tab === checkTab);
   };
 
+  $scope.addFavorite = function(index){
+
+  };
+
 }])
 
   .controller('HealerDetailController', ['$scope', '$stateParams', 'healerFactory',
-    'baseURL', 'projectFactory', '$ionicModal', '$timeout','reserveFactory',
-    function($scope, $stateParams, healerFactory, baseURL, projectFactory, $ionicModal, $timeout, reserveFactory){
+    'baseURL', 'projectFactory', '$ionicModal', '$timeout','reserveFactory', '$ionicNavBarDelegate',
+    function($scope, $stateParams, healerFactory, baseURL, projectFactory, $ionicModal, $timeout, reserveFactory, $ionicNavBarDelegate){
+
+      //$scope.$on('$ionicView.enter', function() {//代码改变 ion-nav-title 位置
+      //  //$ionicNavBarDelegate.align('center');
+      //  $timeout(function() {
+      //    $ionicNavBarDelegate.align('center');
+      //  });
+      //});
 
       $scope.baseURL = baseURL;
       $scope.healer = {};
@@ -248,6 +259,7 @@ angular.module('kangFu.controllers', [])
       $scope.isSelected = function (checkTab) {
         return ($scope.tab === checkTab);
       };
+
 
       //for testing project info
       //projectFactory.getProjects().get({id: 0})

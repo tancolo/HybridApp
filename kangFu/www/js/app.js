@@ -24,6 +24,7 @@ angular.module('kangFu', ['ionic', 'kangFu.controllers', 'kangFu.services'])
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $ionicConfigProvider.scrolling.jsScrolling(true);//解决Android设备下竖条边问题
+  //$ionicConfigProvider.navBar.alignTitle('center');//全局修改title居中显示
 
   $stateProvider
     .state('app', {

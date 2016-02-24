@@ -1,7 +1,8 @@
-<ion-view view-title="治疗师">
-  <ion-content>
-    <!--list item-->
+<ion-view cache-view="false">
+    <ion-nav-title> {{healer.name}} </ion-nav-title>
+    <ion-content>
 
+    <!--list item-->
     <div class="list">
       <div class="item item-avatar-left" style="height: 150px;background-image: url(../img/bg_doctor_detail.jpg); background-size: 100% 100%;">
         <img style="margin-top: 3em" ng-src="{{baseURL+healer.image}}">

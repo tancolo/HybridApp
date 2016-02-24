@@ -5,6 +5,7 @@
 
 angular.module('kangFu.services', ['ngResource'])
   .constant("baseURL","http://localhost:3000/")
+  //.constant("baseURL","http://192.168.199.187:3000/")
   .service('projectFactory', ['$resource', 'baseURL', function($resource, baseURL){
 
     this.getProjects = function() {

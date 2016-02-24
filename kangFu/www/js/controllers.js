@@ -153,7 +153,8 @@ angular.module('kangFu.controllers', [])
   }])
 
 .controller('HealerController', ['$scope', 'healerFactory', 'baseURL', '$ionicListDelegate', 'favoriteFactory',
-  function($scope, healerFactory, baseURL, $ionicListDelegate, favoriteFactory){
+  '$ionicPlatform', '$cordovaLocalNotification', '$cordovaToast',
+  function($scope, healerFactory, baseURL, $ionicListDelegate, favoriteFactory, $ionicPlatform, $cordovaLocalNotification, $cordovaToast){
 
   $scope.baseURL = baseURL;
   $scope.tab = 1;
@@ -198,6 +199,34 @@ angular.module('kangFu.controllers', [])
     console.log("index is " + index);
     favoriteFactory.addToFavorites(index);
     $ionicListDelegate.closeOptionButtons();
+
+    $ionicPlatform.ready(function(){
+      //notify to user on status bars
+      $cordovaLocalNotification.schedule({
+        id: 1,
+        title: "添加收藏",
+        text: $scope.healers[index].name
+      }).then(function () {
+          console.log('Added Favorite '+$scope.healers[index].name);
+        },
+        function () {
+          console.log('Failed to add Notification ');
+        });
+
+      //Toast to user
+      $cordovaToast.show('添加收藏 ' + $scope.healers[index].name, 'long', 'center')
+        .then(function(success){
+          //success
+          console.log('Show Success!');
+        },
+          function(error){
+            //error
+            console.log('Show error!');
+          }
+        );
+
+    });
+
   };
 
 }])

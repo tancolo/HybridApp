@@ -119,7 +119,8 @@ angular.module('kangFu', ['ionic', 'kangFu.controllers', 'kangFu.services'])
       url: '/favorites',
       views: {
         'mainContent': {
-          templateUrl: 'templates/favorites.html'
+          templateUrl: 'templates/favorites.html',
+          controller: 'FavoritesController'
         }
       }
     })

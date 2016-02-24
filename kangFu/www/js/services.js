@@ -33,5 +33,28 @@ angular.module('kangFu.services', ['ngResource'])
 
   }])
 
+  .factory('favoriteFactory', ['$resource', 'baseURL', function($resource, baseURL){
+    var favFac = {};
+    var favorites = [];
+
+    favFac.addToFavorites = function(index){
+
+      for(var i = 0; i < favorites.length; i++) {
+        if(favorites[i].id == index) {
+          return;
+        }
+      }
+      console.log("push index = " + index);
+      favorites.push({id: index});
+    };
+
+    favFac.getFavorites = function() {
+      return favorites;
+    };
+
+    return favFac;
+
+  }])
+
 ;
 

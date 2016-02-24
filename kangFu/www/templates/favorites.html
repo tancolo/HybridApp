@@ -1,5 +1,33 @@
 <ion-view view-title="我的收藏">
+  <ion-nav-buttons side="secondary">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-minus-outline"
+              ng-click="toggleDelete()"></button>
+    </div>
+  </ion-nav-buttons>
+
   <ion-content>
-    <h1>我的收藏</h1>
+    <ion-list show-delete="shouldShowDelete">
+      <ion-item class="item-avatar" ng-repeat="healer in healers | favoriteFilter:favorites | orderBy : orderByText"
+                ui-sref="app.healerdetails({id: healer.id})" class="item-thumbnail-left" >
+
+        <img ng-src="{{baseURL+healer.image}}">
+        <button style="float: right;" class="button-rounded">专业级</button>
+        <h2>{{healer.name}}&nbsp;&nbsp;<small style="font-size: smaller">{{healer.gender}}</small> </h2>
+
+        <p style="width: 60%">{{healer.description}}</p>
+        <p style="color: #007aff;float:right; font-size: 50%;">好评率：{{healer.favourable}}%</p>
+        <p style="font-size: 50%;">已服务{{healer.serviced}}次</p>
+
+        <!-- delete option -->
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="deleteFavorite(dish.id)">
+        </ion-delete-button>
+
+      </ion-item>
+
+    </ion-list>
+
   </ion-content>
+
 </ion-view>

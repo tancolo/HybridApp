@@ -12,9 +12,9 @@
 
   <ion-content>
 
-    <div class="list">
-      <a class="item item-avatar" ng-repeat="healer in healers | orderBy : orderByText"
-      ui-sref="app.healerdetails({id: healer.id})">
+    <ion-list>
+      <ion-item class="item-avatar" ng-repeat="healer in healers | orderBy : orderByText"
+                ui-sref="app.healerdetails({id: healer.id})">
 
         <img ng-src="{{baseURL+healer.image}}">
         <button style="float: right;" class="button-rounded">专业级</button>
@@ -23,8 +23,32 @@
         <p style="width: 60%">{{healer.description}}</p>
         <p style="color: #007aff;float:right; font-size: 50%;">好评率：{{healer.favourable}}%</p>
         <p style="font-size: 50%;">已服务{{healer.serviced}}次</p>
-      </a>
-    </div>
+
+         <!-- love button add favorites-->
+        <ion-option-button class="button-royal icon ion-ios-heart"
+          ng-click="addFavorite({{healer.id}})">
+        </ion-option-button>
+
+      </ion-item>
+      <!--<div class="item item-avatar" ng-repeat="healer in healers | orderBy : orderByText"-->
+      <!--ui-sref="app.healerdetails({id: healer.id})">-->
+
+        <!--<img ng-src="{{baseURL+healer.image}}">-->
+        <!--<button style="float: right;" class="button-rounded">专业级</button>-->
+        <!--<h2>{{healer.name}}&nbsp;&nbsp;<small style="font-size: smaller">{{healer.gender}}</small> </h2>-->
+
+        <!--<p style="width: 60%">{{healer.description}}</p>-->
+        <!--<p style="color: #007aff;float:right; font-size: 50%;">好评率：{{healer.favourable}}%</p>-->
+        <!--<p style="font-size: 50%;">已服务{{healer.serviced}}次</p>-->
+
+        <!--&lt;!&ndash; + button add favorites&ndash;&gt;-->
+        <!--<ion-option-button class="button-assertive icon ion-plus-circled"-->
+                           <!--ng-click="addFavorite({{dish.id}})">-->
+        <!--</ion-option-button>-->
+
+      <!--</div>-->
+
+    </ion-list>
 
   </ion-content>
 </ion-view>

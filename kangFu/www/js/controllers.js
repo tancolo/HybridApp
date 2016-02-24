@@ -152,7 +152,8 @@ angular.module('kangFu.controllers', [])
 
   }])
 
-.controller('HealerController', ['$scope', 'healerFactory', 'baseURL', function($scope, healerFactory, baseURL){
+.controller('HealerController', ['$scope', 'healerFactory', 'baseURL', '$ionicListDelegate', 'favoriteFactory',
+  function($scope, healerFactory, baseURL, $ionicListDelegate, favoriteFactory){
 
   $scope.baseURL = baseURL;
   $scope.tab = 1;
@@ -194,7 +195,9 @@ angular.module('kangFu.controllers', [])
   };
 
   $scope.addFavorite = function(index){
-
+    console.log("index is " + index);
+    favoriteFactory.addToFavorites(index);
+    $ionicListDelegate.closeOptionButtons();
   };
 
 }])
@@ -311,6 +314,48 @@ angular.module('kangFu.controllers', [])
       };
 
   }])
+
+  .controller('FavoritesController', ['$scope', 'healerFactory', 'favoriteFactory', 'baseURL',
+    function($scope, healerFactory, favoriteFactory, baseURL){
+
+      $scope.baseURL = baseURL;
+      $scope.orderByText = "-serviced";//用于排列,按照服务人次排序
+
+      $scope.shouldShowDelete = false;//是否显示删除按钮
+
+      //get the healers from the services.js
+      $scope.healers = healerFactory.getHealers().query(
+        function(response){
+          $scope.healers = response;
+          console.log("get healers from services succeed!");
+        },
+        function(error){
+          $scope.message = "Error: " + error.status + "  " + error.statusText;
+        });
+
+      //get favorites from favoriteFactory
+      $scope.favorites = favoriteFactory.getFavorites();
+
+      $scope.toggleDelete = function() {
+        $scope.shouldShowDelete = !$scope.shouldShowDelete;
+        console.log($scope.shouldShowDelete);
+      };
+
+  }])
+
+  .filter('favoriteFilter', function () {
+    return function (healers, favorites) {
+      var out = new Array();
+
+      for (var i = 0; i < favorites.length; i++) {
+        for (var j = 0; j < healers.length; j++) {
+          if (healers[j].id === favorites[i].id)
+            out.push(healers[j]);
+        }
+      }
+      return out;
+    }
+  })
 
   .directive('backImg', function(){
     return function(scope, element, attrs){

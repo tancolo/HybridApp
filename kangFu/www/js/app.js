@@ -80,6 +80,26 @@ angular.module('kangFu', ['ionic', 'ngCordova', 'kangFu.controllers', 'kangFu.se
       }
     })
 
+    //实体店以及详情state
+    .state('app.localstore', {
+      url: '/localstore',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/localstore.html',
+          controller: 'LocalStoreController'
+        }
+      }
+    })
+    .state('app.storedetails', {
+      url: '/localstore/:id',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/localstoredetails.html',
+          controller: 'StoreDetailController'
+        }
+      }
+    })
+
   .state('app.account', {
       url: '/account',
       views: {

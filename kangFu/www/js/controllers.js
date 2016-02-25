@@ -426,4 +426,48 @@ angular.module('kangFu.controllers', [])
     };
   })
 
+  .controller('LocalStoreController', ['$scope', 'storeFactory', 'baseURL', function($scope, storeFactory, baseURL){
+    $scope.baseURL = baseURL;
+    $scope.tab = 1;
+    $scope.filtText = '';
+    $scope.message = "Loading...";
+
+    storeFactory.getStores().query(
+      function(response) {
+        $scope.stores = response;
+        console.log("get the local stores");
+      },
+      function(error){
+        $scope.message = "Error: " + error.status + "  " + error.statusText;
+      });
+
+    //for test get one store info
+    $scope.store = storeFactory.getStores().get({id:1})
+      .$promise.then(
+        function(response){
+          $scope.store = response;
+          console.log("get store: " + JSON.stringify($scope.store));
+        },
+        function(error){
+          $scope.message = "Error: " + error.status + "  " + error.statusText;
+        }
+      );
+
+    //tabs option
+    $scope.select = function (setTab) {
+      $scope.tab = setTab;
+
+      switch(setTab){
+        case 2:
+          break;
+        default:
+          break;
+      }
+    };
+
+    $scope.isSelected = function (checkTab) {
+      return ($scope.tab === checkTab);
+    };
+  }])
+
 ;

@@ -900,50 +900,11 @@
       "id": 4
     }
   ],
-  "storefront": [
-    {
-      "id": 1,
-      "name": "四川省康复医院康复大师门诊部",
-      "images": [
-        "images/storefront/storefront01-01.jpg",
-        "images/storefront/storefront01-02.jpg",
-        "images/storefront/storefront01-03.jpg"
-      ],
-      "start_time_hour": "09",
-      "start_time_min": "00",
-      "end_time_hour": "18",
-      "end_time_min": "00",
-      "order": 0,
-      "description": "四川省康复医院康复大师门诊部于2015年12月正式挂牌，门诊部位于双林路，新华公园斜对面，辐射周围双林社区、水碾河社区、祥和里社区、新鸿社区等。门诊部设有：颈肩腰腿病康复专科门诊、骨外伤后功能康复专科门诊、三瘫一截（偏瘫脑瘫截瘫截肢）康复专科门诊及言语 认 知 康 复 治 疗 室 等 ，引 进McKenzie 治疗技术、Maitland 治疗技术、美式整脊疗法、物理因子疗法、作业疗法、神经本体感觉促进技术、关节松动术等国际先进的现代康复治疗技术和推拿、针灸、拔罐等中医传统康复治疗技术。这是四川省康复医院的首个落座于成都市区的便民门诊，除了可以享受与到院相同的专家级医疗资源外，同步实现了双向转诊，让患者能够用便捷的方式享受前端的医疗资源。",
-      "address": "四川省成都市成华区 双林路228号附13号(新华公园斜对面)",
-      "telephone": "028-84125089",
-      "guests": 0,
-      "distance": "13.00"
-    },
-    {
-      "id": 2,
-      "name": "康复大师平潭体验店",
-      "images": [
-        "images/storefront/storefront02-01.jpg",
-        "images/storefront/storefront02-02.jpg",
-        "images/storefront/storefront02-03.jpg"
-      ],
-      "start_time_hour": "09",
-      "start_time_min": "00",
-      "end_time_hour": "21",
-      "end_time_min": "00",
-      "order": 0,
-      "description": "康复大师平潭体验店于2015年正式开业，位于平潭县 潭城镇红东街37号。门诊部设有：颈肩腰腿痛康复专科门诊、偏瘫、脑瘫 等专科门诊，重点开展颈肩腰腿疼的现代康复;骨折术 后的康复;创伤后关节僵硬手法治疗物理。采用运动治 疗、作业治疗、言语治疗、认知治疗、康复工程以及 传统中医按摩/推拿、针灸治疗等综合的康复治疗手 段，对骨关节肌肉病损、中枢及周围神经病损、慢性 疼痛等病症进行康复治疗。",
-      "address": "福建省福州市平潭县埔东路与红东巷交叉口",
-      "telephone": "13215000388",
-      "guests": 0,
-      "distance": "1643.00"
-    }
-  ],
-  "partners": [
+  "storefronts": [
     {
       "id": 1,
       "name": "四川省八一康复中心",
+      "category": "partner",
       "images": [
         "images/partners/partners01.jpg"
       ],
@@ -962,6 +923,7 @@
     {
       "id": 2,
       "name": "重庆市西南大学医院",
+      "category": "partner",
       "images": [
         "images/partners/partners02.jpg"
       ],
@@ -980,6 +942,7 @@
     {
       "id": 3,
       "name": "第三军医大学西南医院",
+      "category": "partner",
       "images": [
         "images/partners/partners03.jpg"
       ],
@@ -998,6 +961,7 @@
     {
       "id": 4,
       "name": "重庆医科大学附属第一医院",
+      "category": "partner",
       "images": [
         "images/partners/partners04.jpg"
       ],
@@ -1016,6 +980,7 @@
     {
       "id": 5,
       "name": "重庆市南岸区中医院",
+      "category": "partner",
       "images": [
         "images/partners/partners05.jpg"
       ],
@@ -1034,6 +999,7 @@
     {
       "id": 6,
       "name": "渝中区七星岗社区卫生服务中",
+      "category": "partner",
       "images": [
         "images/partners/partners06.jpg"
       ],
@@ -1052,6 +1018,7 @@
     {
       "id": 7,
       "name": "灵宝市第二人民医院",
+      "category": "partner",
       "images": [
         "images/partners/partners07.jpg"
       ],
@@ -1070,6 +1037,7 @@
     {
       "id": 8,
       "name": "灵宝市第三人民医院",
+      "category": "partner",
       "images": [
         "images/partners/partners08.jpg"
       ],
@@ -1088,6 +1056,7 @@
     {
       "id": 9,
       "name": "三门峡中心医院",
+      "category": "partner",
       "images": [
         "images/partners/partners09.jpg"
       ],
@@ -1106,6 +1075,7 @@
     {
       "id": 10,
       "name": "陕县人民院",
+      "category": "partner",
       "images": [
         "images/partners/partners10.jpg"
       ],
@@ -1124,6 +1094,7 @@
     {
       "id": 11,
       "name": "南阳南石医院",
+      "category": "partner",
       "images": [
         "images/partners/partners11.jpg"
       ],
@@ -1142,6 +1113,7 @@
     {
       "id": 12,
       "name": "广西柳州市人民医院",
+      "category": "partner",
       "images": [
         "images/partners/partners12.jpg"
       ],
@@ -1160,6 +1132,7 @@
     {
       "id": 13,
       "name": "许昌市人民医院",
+      "category": "partner",
       "images": [
         "images/partners/partners13.jpg"
       ],
@@ -1178,6 +1151,7 @@
     {
       "id": 14,
       "name": "焦作市康复医院",
+      "category": "partner",
       "images": [
         "images/partners/partners14.jpg"
       ],
@@ -1196,6 +1170,7 @@
     {
       "id": 15,
       "name": "国医堂",
+      "category": "partner",
       "images": [
         "images/partners/partners15.jpg"
       ],
@@ -1214,6 +1189,7 @@
     {
       "id": 16,
       "name": "民权中医院",
+      "category": "partner",
       "images": [
         "images/partners/partners16.jpg"
       ],
@@ -1232,6 +1208,7 @@
     {
       "id": 17,
       "name": "福建省人民医院",
+      "category": "partner",
       "images": [
         "images/partners/partners17.jpg"
       ],
@@ -1250,6 +1227,7 @@
     {
       "id": 18,
       "name": "上海沪东医院",
+      "category": "partner",
       "images": [
         "images/partners/partners18.jpg"
       ],
@@ -1268,6 +1246,7 @@
     {
       "id": 19,
       "name": "东街街道社区卫生服务中心",
+      "category": "partner",
       "images": [
         "images/partners/partners19.jpg"
       ],
@@ -1282,6 +1261,46 @@
       "telephone": "0591-87521436",
       "guests": 0,
       "distance": "1573.00"
+    },
+    {
+      "id": 20,
+      "name": "四川省康复医院康复大师门诊部",
+      "category": "store",
+      "images": [
+        "images/storefront/storefront01-01.jpg",
+        "images/storefront/storefront01-02.jpg",
+        "images/storefront/storefront01-03.jpg"
+      ],
+      "start_time_hour": "09",
+      "start_time_min": "00",
+      "end_time_hour": "18",
+      "end_time_min": "00",
+      "order": 0,
+      "description": "四川省康复医院康复大师门诊部于2015年12月正式挂牌，门诊部位于双林路，新华公园斜对面，辐射周围双林社区、水碾河社区、祥和里社区、新鸿社区等。门诊部设有：颈肩腰腿病康复专科门诊、骨外伤后功能康复专科门诊、三瘫一截（偏瘫脑瘫截瘫截肢）康复专科门诊及言语 认 知 康 复 治 疗 室 等 ，引 进McKenzie 治疗技术、Maitland 治疗技术、美式整脊疗法、物理因子疗法、作业疗法、神经本体感觉促进技术、关节松动术等国际先进的现代康复治疗技术和推拿、针灸、拔罐等中医传统康复治疗技术。这是四川省康复医院的首个落座于成都市区的便民门诊，除了可以享受与到院相同的专家级医疗资源外，同步实现了双向转诊，让患者能够用便捷的方式享受前端的医疗资源。",
+      "address": "四川省成都市成华区 双林路228号附13号(新华公园斜对面)",
+      "telephone": "028-84125089",
+      "guests": 0,
+      "distance": "13.00"
+    },
+    {
+      "id": 21,
+      "name": "康复大师平潭体验店",
+      "category": "store",
+      "images": [
+        "images/storefront/storefront02-01.jpg",
+        "images/storefront/storefront02-02.jpg",
+        "images/storefront/storefront02-03.jpg"
+      ],
+      "start_time_hour": "09",
+      "start_time_min": "00",
+      "end_time_hour": "21",
+      "end_time_min": "00",
+      "order": 0,
+      "description": "康复大师平潭体验店于2015年正式开业，位于平潭县 潭城镇红东街37号。门诊部设有：颈肩腰腿痛康复专科门诊、偏瘫、脑瘫 等专科门诊，重点开展颈肩腰腿疼的现代康复;骨折术 后的康复;创伤后关节僵硬手法治疗物理。采用运动治 疗、作业治疗、言语治疗、认知治疗、康复工程以及 传统中医按摩/推拿、针灸治疗等综合的康复治疗手 段，对骨关节肌肉病损、中枢及周围神经病损、慢性 疼痛等病症进行康复治疗。",
+      "address": "福建省福州市平潭县埔东路与红东巷交叉口",
+      "telephone": "13215000388",
+      "guests": 0,
+      "distance": "1643.00"
     }
   ],
   "feedback": []

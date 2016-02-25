@@ -91,20 +91,21 @@ angular.module('kangFu.services', ['ngResource'])
     var storeFac = {};
 
     storeFac.getStores = function(){
-      return $resource(baseURL+"storefront/:id", null, {'update':{method:'PUT'}});
+      return $resource(baseURL+"storefronts/:id", null, {'update':{method:'PUT'}});
     };
 
     return storeFac;
   }])
 
-  .factory('partnersFactory', ['$resource', 'baseURL', function($resource, baseURL){
-    var partnersFac = {};
-
-    partnersFac.getPartners = function(){
-      return $resource(baseURL+"partners/:id", null, {'update':{method:'PUT'}});
-    };
-
-    return partnersFac;
-  }])
+  //不需要使用2个Factory
+  //.factory('partnersFactory', ['$resource', 'baseURL', function($resource, baseURL){
+  //  var partnersFac = {};
+  //
+  //  partnersFac.getPartners = function(){
+  //    return $resource(baseURL+"partners/:id", null, {'update':{method:'PUT'}});
+  //  };
+  //
+  //  return partnersFac;
+  //}])
 ;
 

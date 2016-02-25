@@ -87,5 +87,24 @@ angular.module('kangFu.services', ['ngResource'])
 
   }])
 
+  .factory('storeFactory', ['$resource', 'baseURL', function($resource, baseURL){
+    var storeFac = {};
+
+    storeFac.getStores = function(){
+      return $resource(baseURL+"storefront/:id", null, {'update':{method:'PUT'}});
+    };
+
+    return storeFac;
+  }])
+
+  .factory('partnersFactory', ['$resource', 'baseURL', function($resource, baseURL){
+    var partnersFac = {};
+
+    partnersFac.getPartners = function(){
+      return $resource(baseURL+"partners/:id", null, {'update':{method:'PUT'}});
+    };
+
+    return partnersFac;
+  }])
 ;
 

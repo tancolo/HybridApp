@@ -409,6 +409,7 @@ angular.module('kangFu.controllers', [])
         console.log($scope.shouldShowDelete);
       };
 
+      //for tab1 healer favorites.
       $scope.deleteFavorite = function (index) {
 
         var confirmPopup = $ionicPopup.confirm({
@@ -430,6 +431,34 @@ angular.module('kangFu.controllers', [])
 
           } else {
             console.log('Delete Cancel');
+          }
+        });
+
+        $scope.shouldShowDelete = false;
+      };
+
+      //for tab2 stores favorites.
+      $scope.deleteStoreFavorite = function (index) {
+
+        var confirmPopup = $ionicPopup.confirm({
+          title: '删 除',
+          template: '确认删除该实体店？',
+          okText: '确定',
+          cancelText: '取消'
+        });
+
+        confirmPopup.then(function(res){
+          if (res) {
+            console.log('Ok to delete store');
+            favoriteFactory.deleteStoreFromFavorites(index);
+
+            //$ionicPlatform ready and $cordovaVibration
+            $ionicPlatform.ready(function(){
+              $cordovaVibration.vibrate(1000);
+            });
+
+          } else {
+            console.log('Delete store Cancel');
           }
         });
 

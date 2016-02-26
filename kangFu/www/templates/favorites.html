@@ -42,7 +42,8 @@
     <!--for tab2 store favorites-->
     <ion-list ng-if="showTab2" show-delete="shouldShowDelete">
       <ion-item ng-repeat="store in stores | storeFavoriteFilter: storeFavorites"
-                ui-sref="app.storedetails({id: store.id})">
+                ui-sref="app.storedetails({id: store.id})"
+                on-swipe-left="deleteStoreFavorite(store.id)">
         <label>
           <img style="vertical-align:middle;" class="image-rounded" ng-src="{{baseURL + store.images[0].image}}">
         </label>

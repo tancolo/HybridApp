@@ -508,7 +508,8 @@ angular.module('kangFu.controllers', [])
   })
 
   .controller('LocalStoreController', ['$scope', 'storeFactory', 'baseURL', 'favoriteFactory', '$ionicListDelegate',
-    function($scope, storeFactory, baseURL, favoriteFactory, $ionicListDelegate){
+    '$ionicPlatform', '$cordovaLocalNotification', '$cordovaToast',
+    function($scope, storeFactory, baseURL, favoriteFactory, $ionicListDelegate,  $ionicPlatform, $cordovaLocalNotification, $cordovaToast){
     $scope.baseURL = baseURL;
     $scope.tab = 1;
     $scope.filtText = 'store';
@@ -518,6 +519,7 @@ angular.module('kangFu.controllers', [])
       function(response) {
         $scope.stores = response;
         console.log("get the local stores");
+        //console.log("get the local stores: " + JSON.stringify($scope.stores));
       },
       function(error){
         $scope.message = "Error: " + error.status + "  " + error.statusText;
@@ -555,35 +557,36 @@ angular.module('kangFu.controllers', [])
 
     //add store id to favorites
     $scope.addStoreFavorite = function(index){
-      console.log("store index is " + index);
+      console.log("store index is " + index + " name = " + $scope.stores[index-1].name);
       favoriteFactory.addStoreToFavorites(index);
       $ionicListDelegate.closeOptionButtons();
 
-      //$ionicPlatform.ready(function(){
-      //  //notify to user on status bars
-      //  $cordovaLocalNotification.schedule({
-      //    id: 1,
-      //    title: "添加收藏",
-      //    text: $scope.healers[index].name
-      //  }).then(function () {
-      //      console.log('Added Favorite '+$scope.healers[index].name);
-      //    },
-      //    function () {
-      //      console.log('Failed to add Notification ');
-      //    });
-      //
-      //  //Toast to user
-      //  $cordovaToast.show('添加收藏 ' + $scope.healers[index].name, 'long', 'center')
-      //    .then(function(success){
-      //        //success
-      //        console.log('Show Success!');
-      //      },
-      //      function(error){
-      //        //error
-      //        console.log('Show error!');
-      //      }
-      //    );
-      //});
+      $ionicPlatform.ready(function(){
+        //notify to user on status bars
+        //注意，index-1是为了配合json db中的排列，因为不是从id 0开始的
+        $cordovaLocalNotification.schedule({
+          id: 1,
+          title: "添加收藏",
+          text: $scope.stores[index-1].name
+        }).then(function () {
+            console.log('Added Favorite '+$scope.stores[index-1].name);
+          },
+          function () {
+            console.log('Failed to add Notification ');
+          });
+
+        //Toast to user
+        $cordovaToast.show('添加收藏 ' + $scope.stores[index-1].name, 'long', 'center')
+          .then(function(success){
+              //success
+              console.log('Show Success!');
+            },
+            function(error){
+              //error
+              console.log('Show error!');
+            }
+          );
+      });
 
     };
 

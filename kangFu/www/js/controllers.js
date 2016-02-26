@@ -442,11 +442,11 @@ angular.module('kangFu.controllers', [])
       });
 
     //for test get one store info
-    //$scope.store = storeFactory.getStores().get({id:1})
+    //$scope.store = storeFactory.getStores().get({id:20})
     //  .$promise.then(
     //    function(response){
     //      $scope.store = response;
-    //      console.log("get store: " + JSON.stringify($scope.store));
+    //      console.log("get store: " + JSON.stringify($scope.store.images[0].image));
     //    },
     //    function(error){
     //      $scope.message = "Error: " + error.status + "  " + error.statusText;
@@ -472,11 +472,15 @@ angular.module('kangFu.controllers', [])
     };
   }])
 
-  .controller('StoreDetailController', ['$scope', 'storeFactory', 'baseURL', function($scope, storeFactory, baseURL){
+  .controller('StoreDetailController', ['$scope', 'storeFactory', 'baseURL', '$stateParams', '$ionicSlideBoxDelegate',
+    function($scope, storeFactory, baseURL, $stateParams, $ionicSlideBoxDelegate){
+
     $scope.baseURL = baseURL;
     $scope.tab = 1;
     $scope.filtText = 'store';
     $scope.message = "Loading...";
+
+    $scope.showNoTime = false;
 
     //storeFactory.getStores().query(
     //  function(response) {
@@ -487,18 +491,32 @@ angular.module('kangFu.controllers', [])
     //    $scope.message = "Error: " + error.status + "  " + error.statusText;
     //  });
 
-    //for test get one store info
-    //$scope.store = storeFactory.getStores().get({id:1})
-    //  .$promise.then(
-    //    function(response){
-    //      $scope.store = response;
-    //      console.log("get store: " + JSON.stringify($scope.store));
-    //    },
-    //    function(error){
-    //      $scope.message = "Error: " + error.status + "  " + error.statusText;
-    //    }
-    //  );
+    //get store which selected.
+    $scope.store = storeFactory.getStores().get({id: parseInt($stateParams.id, 10)})
+      .$promise.then(
+        function(response){
+          $scope.store = response;
+          //console.log("get store: " + JSON.stringify($scope.store));
+          console.log("store.time = " + $scope.store.time);
+          if($scope.store.time === "") {
+            $scope.showNoTime = true;
+            console.log("showNoTime = " + $scope.showNoTime);
+          }
+        },
+        function(error){
+          $scope.message = "Error: " + error.status + "  " + error.statusText;
+        }
+      );
 
+      //重要，解决使用ng-repeat后，无法显示网络图片问题
+      setTimeout(function(){
+        $ionicSlideBoxDelegate.update();
+      },50);
+
+      // Called each time the slide changes
+      $scope.slideChanged = function(index) {
+        $scope.slideIndex = index;
+      };
 
   }])
 

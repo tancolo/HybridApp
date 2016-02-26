@@ -55,3 +55,9 @@
   hyphens: auto;
   overflow: auto;
 }
+
+/*图片轮播尺寸*/
+.img-slide {
+  width:100%;
+  height: 200px;
+}

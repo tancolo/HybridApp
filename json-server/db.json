@@ -906,7 +906,9 @@
       "name": "四川省八一康复中心",
       "category": "partner",
       "images": [
-        "images/partners/partners01.jpg"
+        {
+          "image": "images/partners/partners01.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -925,7 +927,9 @@
       "name": "重庆市西南大学医院",
       "category": "partner",
       "images": [
-        "images/partners/partners02.jpg"
+        {
+          "image": "images/partners/partners02.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -944,7 +948,9 @@
       "name": "第三军医大学西南医院",
       "category": "partner",
       "images": [
-        "images/partners/partners03.jpg"
+        {
+          "image": "images/partners/partners03.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -963,7 +969,9 @@
       "name": "重庆医科大学附属第一医院",
       "category": "partner",
       "images": [
-        "images/partners/partners04.jpg"
+        {
+          "image": "images/partners/partners04.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -982,7 +990,9 @@
       "name": "重庆市南岸区中医院",
       "category": "partner",
       "images": [
-        "images/partners/partners05.jpg"
+        {
+          "image": "images/partners/partners05.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1001,7 +1011,9 @@
       "name": "渝中区七星岗社区卫生服务中",
       "category": "partner",
       "images": [
-        "images/partners/partners06.jpg"
+        {
+          "image": "images/partners/partners06.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1020,7 +1032,9 @@
       "name": "灵宝市第二人民医院",
       "category": "partner",
       "images": [
-        "images/partners/partners07.jpg"
+        {
+          "image": "images/partners/partners07.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1039,7 +1053,9 @@
       "name": "灵宝市第三人民医院",
       "category": "partner",
       "images": [
-        "images/partners/partners08.jpg"
+        {
+          "image": "images/partners/partners08.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1058,7 +1074,9 @@
       "name": "三门峡中心医院",
       "category": "partner",
       "images": [
-        "images/partners/partners09.jpg"
+        {
+          "image": "images/partners/partners09.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1077,7 +1095,9 @@
       "name": "陕县人民院",
       "category": "partner",
       "images": [
-        "images/partners/partners10.jpg"
+        {
+          "image": "images/partners/partners10.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1096,7 +1116,9 @@
       "name": "南阳南石医院",
       "category": "partner",
       "images": [
-        "images/partners/partners11.jpg"
+        {
+          "image": "images/partners/partners11.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1115,7 +1137,9 @@
       "name": "广西柳州市人民医院",
       "category": "partner",
       "images": [
-        "images/partners/partners12.jpg"
+        {
+          "image": "images/partners/partners12.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1134,7 +1158,9 @@
       "name": "许昌市人民医院",
       "category": "partner",
       "images": [
-        "images/partners/partners13.jpg"
+        {
+          "image": "images/partners/partners13.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1153,7 +1179,9 @@
       "name": "焦作市康复医院",
       "category": "partner",
       "images": [
-        "images/partners/partners14.jpg"
+        {
+          "image": "images/partners/partners14.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1172,7 +1200,9 @@
       "name": "国医堂",
       "category": "partner",
       "images": [
-        "images/partners/partners15.jpg"
+        {
+          "image": "images/partners/partners15.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1191,7 +1221,9 @@
       "name": "民权中医院",
       "category": "partner",
       "images": [
-        "images/partners/partners16.jpg"
+        {
+          "image": "images/partners/partners16.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1210,7 +1242,9 @@
       "name": "福建省人民医院",
       "category": "partner",
       "images": [
-        "images/partners/partners17.jpg"
+        {
+          "image": "images/partners/partners17.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1229,7 +1263,9 @@
       "name": "上海沪东医院",
       "category": "partner",
       "images": [
-        "images/partners/partners18.jpg"
+        {
+          "image": "images/partners/partners18.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1248,7 +1284,9 @@
       "name": "东街街道社区卫生服务中心",
       "category": "partner",
       "images": [
-        "images/partners/partners19.jpg"
+        {
+          "image": "images/partners/partners19.jpg"
+        }
       ],
       "time": "暂无消息",
       "start_time_hour": "00",
@@ -1267,10 +1305,17 @@
       "name": "四川省康复医院康复大师门诊部",
       "category": "store",
       "images": [
-        "images/storefront/storefront01-01.jpg",
-        "images/storefront/storefront01-02.jpg",
-        "images/storefront/storefront01-03.jpg"
+        {
+          "image": "images/storefront/storefront01-01.jpg"
+        },
+        {
+          "image": "images/storefront/storefront01-02.jpg"
+        },
+        {
+          "image": "images/storefront/storefront01-03.jpg"
+        }
       ],
+      "time": "",
       "start_time_hour": "09",
       "start_time_min": "00",
       "end_time_hour": "18",
@@ -1287,10 +1332,17 @@
       "name": "康复大师平潭体验店",
       "category": "store",
       "images": [
-        "images/storefront/storefront02-01.jpg",
-        "images/storefront/storefront02-02.jpg",
-        "images/storefront/storefront02-03.jpg"
+        {
+          "image": "images/storefront/storefront02-01.jpg"
+        },
+        {
+          "image": "images/storefront/storefront02-02.jpg"
+        },
+        {
+          "image": "images/storefront/storefront02-03.jpg"
+        }
       ],
+      "time": "",
       "start_time_hour": "09",
       "start_time_min": "00",
       "end_time_hour": "21",

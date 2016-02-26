@@ -1,5 +1,52 @@
 <ion-view view-title="门店介绍">
+
+
   <ion-content>
+    <ion-slide-box on-slide-changed="slideChanged(index)" does-continue="true" auto-play="true" slide-interval="2000">
+      <ion-slide ng-repeat="image in store.images" class="img-slide">
+        <img  class="full-image" ng-src="{{baseURL + image.image}}">
+      </ion-slide>
+    </ion-slide-box>
+    <div class="item">
+      <h2>{{store.name}}</h2>
+      <p style="margin-top: 0.2em;">
+        <a class="subdued" ng-show="showNoTime">
+          {{store.start_time_hour}}点 :{{store.start_time_min}}分至{{store.end_time_hour}}点: {{store.end_time_min}}分
+        </a>
+        <a class="subdued" ng-show="!showNoTime">
+          {{store.time}}
+        </a>
+        <a class="subdued" style="float: right;color: #007aff">
+          {{store.order}}下单
+        </a>
+      </p>
+    </div>
+
+    <div class="item item-text-wrap">
+      <blockquote>
+        <p>门店介绍</p>
+      </blockquote>
+      <p>{{store.description}}</p>
+    </div>
+
+    <a class="item item-icon-left item-text-wrap item-icon-right" href="#" style="font-size: 80%">
+      <i style="color: #007aff" class="icon ion-ios-location-outline"></i>
+      {{store.address}}
+      <i class="icon ion-ios-arrow-right"></i>
+    </a>
+
+    <a class="item item-icon-left item-text-wrap item-icon-right" href="#" style="font-size: 80%">
+      <i style="color: #007aff" class="icon ion-ios-telephone-outline"></i>
+      {{store.telephone}}
+      <i class="icon ion-ios-arrow-right"></i>
+    </a>
+
+    <a class="item item-icon-left item-text-wrap item-icon-right" style="font-size: 80%;margin-bottom: 30px"
+       href="#/app/projects" >
+      <i style="color: #007aff;" class="icon ion-ios-list-outline"></i>
+      门店项目选择
+      <i class="icon ion-ios-arrow-right"></i>
+    </a>
 
   </ion-content>
 </ion-view>

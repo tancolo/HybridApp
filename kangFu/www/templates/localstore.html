@@ -12,8 +12,9 @@
 
     <ion-list>
       <ion-item ng-repeat="store in stores | filter: filtText" ui-sref="app.storedetails({id: store.id})">
+      <!--<ion-item ui-sref="app.storedetails({id: store.id})">-->
         <label>
-          <img style="vertical-align:middle;" class="image-rounded" ng-src="{{baseURL + store.images[0]}}">
+          <img style="vertical-align:middle;" class="image-rounded" ng-src="{{baseURL + store.images[0].image}}">
         </label>
 
         <div style="float: right;width: 65%">

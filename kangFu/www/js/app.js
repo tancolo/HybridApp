@@ -154,5 +154,5 @@ angular.module('kangFu', ['ionic', 'ngCordova', 'kangFu.controllers', 'kangFu.se
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/localstore');
+  $urlRouterProvider.otherwise('/app/favorites');
 });

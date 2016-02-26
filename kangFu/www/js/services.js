@@ -38,6 +38,10 @@ angular.module('kangFu.services', ['ngResource'])
     //var favorites = [];
     var favorites = $localStorage.getObject('favorites', '[]');
 
+    // 2) for store favorites
+    var storeFavorite = [];
+    var storeFavorite = $localStorage.getObject('storeFavorite', '[]');
+
     favFac.addToFavorites = function(index){
 
       for(var i = 0; i < favorites.length; i++) {
@@ -49,9 +53,26 @@ angular.module('kangFu.services', ['ngResource'])
       favorites.push({id: index});
       $localStorage.storeObject('favorites', favorites);
     };
+    // 2) for store favorites
+    favFac.addStoreToFavorites = function(index){
+
+      for(var i = 0; i < storeFavorite.length; i++) {
+        if(storeFavorite[i].id == index) {
+          return;
+        }
+      }
+      console.log("push store index = " + index);
+      storeFavorite.push({id: index});
+      $localStorage.storeObject('storeFavorite', storeFavorite);
+    };
 
     favFac.getFavorites = function() {
       return favorites;
+    };
+
+    // 2) for store favorites
+    favFac.getStoreFavorites = function() {
+      return storeFavorite;
     };
 
     favFac.deleteFromFavorites = function(index) {
@@ -63,6 +84,18 @@ angular.module('kangFu.services', ['ngResource'])
       }
       //remove to loop is better.
       $localStorage.storeObject('favorites', favorites);
+    };
+
+    // 2) for store favorites
+    favFac.deleteStoreFromFavorites = function(index) {
+      for(var i = 0; i < storeFavorite.length; i++) {
+        if(storeFavorite[i].id == index) {
+          storeFavorite.splice(i, 1);
+          console.log("delete store index : " + index);
+        }
+      }
+      //remove to loop is better.
+      $localStorage.storeObject('storeFavorite', storeFavorite);
     };
 
     return favFac;

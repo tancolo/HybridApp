@@ -6,8 +6,19 @@
     </div>
   </ion-nav-buttons>
 
+  <!--top tab-->
+  <div class="tabs-striped tabs-color-royal">
+    <div class="tabs">
+      <a class="tab-item" ng-class="{active:isSelected(1)}" ng-click="select(1)">治疗师</a>
+      <a class="tab-item" ng-class="{active:isSelected(2)}" ng-click="select(2)">实体店</a>
+    </div>
+  </div>
+
+
   <ion-content>
-    <ion-list show-delete="shouldShowDelete">
+
+    <!--Tab1-->
+    <ion-list ng-if="showTab1" show-delete="shouldShowDelete">
       <ion-item class="item-avatar" ng-repeat="healer in healers | favoriteFilter:favorites | orderBy : orderByText"
                 ui-sref="app.healerdetails({id: healer.id})"
                 on-swipe-left="deleteFavorite(healer.id)">
@@ -26,9 +37,39 @@
         </ion-delete-button>
 
       </ion-item>
-
     </ion-list>
 
+    <!--for tab2 store favorites-->
+    <ion-list ng-if="showTab2" show-delete="shouldShowDelete">
+      <ion-item ng-repeat="store in stores | storeFavoriteFilter: storeFavorites"
+                ui-sref="app.storedetails({id: store.id})">
+        <label>
+          <img style="vertical-align:middle;" class="image-rounded" ng-src="{{baseURL + store.images[0].image}}">
+        </label>
+
+        <div style="float: right;width: 65%">
+          <h2 style="font-size: 90%;">{{store.name}}</h2>
+
+          <p class="subdued" style="margin-top: 0.3em;height: 3em;font-size: 80%;">{{store.address}}</p>
+          <p style="margin-top: 1em">
+            <a class="subdued" style="color: #007aff">{{store.guests}}人<span style="color: darkslategray">去过</span></a>
+            <a class="subdued" style="color: #007aff"><span style="color: darkslategray">距离 : </span>{{store.distance}}千米</a>
+          </p>
+          <p style="color: gray; font-size: 70%">联系电话 {{store.telephone}}</p>
+        </div>
+        <!-- delete store option -->
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="deleteStoreFavorite(store.id)">
+        </ion-delete-button>
+
+      </ion-item>
+    </ion-list>
+
+
   </ion-content>
+
+  <!--<ion-content >-->
+
+  <!--</ion-content>-->
 
 </ion-view>

@@ -28,6 +28,11 @@
           <p style="color: gray; font-size: 70%">联系电话 {{store.telephone}}</p>
         </div>
 
+        <!-- love button add favorites-->
+        <ion-option-button class="button-royal icon ion-ios-heart"
+                           ng-click="addStoreFavorite({{store.id}})">
+        </ion-option-button>
+
       </ion-item>
     </ion-list>
 

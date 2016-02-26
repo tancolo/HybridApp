@@ -343,27 +343,66 @@ angular.module('kangFu.controllers', [])
 
   }])
 
-  .controller('FavoritesController', ['$scope', 'healerFactory', 'favoriteFactory', 'baseURL','$ionicPopup',
+  .controller('FavoritesController', ['$scope', 'healerFactory', 'favoriteFactory', 'storeFactory', 'baseURL','$ionicPopup',
     '$ionicPlatform', '$cordovaVibration',
-    function($scope, healerFactory, favoriteFactory, baseURL, $ionicPopup, $ionicPlatform, $cordovaVibration){
+    function($scope, healerFactory, favoriteFactory, storeFactory, baseURL, $ionicPopup, $ionicPlatform, $cordovaVibration){
 
       $scope.baseURL = baseURL;
       $scope.orderByText = "-serviced";//用于排列,按照服务人次排序
 
       $scope.shouldShowDelete = false;//是否显示删除按钮
 
+      $scope.tab = 1;
+      $scope.showTab1 = true;
+      $scope.showTab2 = false;
+
       //get the healers from the services.js
       $scope.healers = healerFactory.getHealers().query(
         function(response){
           $scope.healers = response;
-          console.log("get healers from services succeed!");
+          console.log("get \"healers\" from services succeed!");
         },
         function(error){
           $scope.message = "Error: " + error.status + "  " + error.statusText;
         });
 
-      //get favorites from favoriteFactory
+      //get the store from the services.js
+      $scope.stores = storeFactory.getStores().query(
+        function(response){
+          $scope.stores = response;
+          console.log("get \"stores\" from services succeed!");
+        },
+        function(error){
+          $scope.message = "Error: " + error.status + "  " + error.statusText;
+        });
+
+      //tabs option
+      $scope.select = function (setTab) {
+        $scope.tab = setTab;
+
+        switch(setTab){
+          case 1:
+            $scope.showTab1 = true;
+            $scope.showTab2 = false;
+            break;
+          case 2:
+            $scope.showTab1 = false;
+            $scope.showTab2 = true;
+            break;
+          default:
+            break;
+        }
+      };
+
+      $scope.isSelected = function (checkTab) {
+        return ($scope.tab === checkTab);
+      };
+
+      //get healer favorites from favoriteFactory
       $scope.favorites = favoriteFactory.getFavorites();
+
+      //get stores favorites from favoriteFactory
+      $scope.storeFavorites = favoriteFactory.getStoreFavorites();
 
       $scope.toggleDelete = function() {
         $scope.shouldShowDelete = !$scope.shouldShowDelete;
@@ -412,6 +451,19 @@ angular.module('kangFu.controllers', [])
       return out;
     }
   })
+  .filter('storeFavoriteFilter', function () {
+    return function (stores, storeFavorites) {
+      var out = new Array();
+
+      for (var i = 0; i < storeFavorites.length; i++) {
+        for (var j = 0; j < stores.length; j++) {
+          if (stores[j].id === storeFavorites[i].id)
+            out.push(stores[j]);
+        }
+      }
+      return out;
+    }
+  })
 
   .directive('backImg', function(){
     return function(scope, element, attrs){
@@ -426,7 +478,8 @@ angular.module('kangFu.controllers', [])
     };
   })
 
-  .controller('LocalStoreController', ['$scope', 'storeFactory', 'baseURL', function($scope, storeFactory, baseURL){
+  .controller('LocalStoreController', ['$scope', 'storeFactory', 'baseURL', 'favoriteFactory', '$ionicListDelegate',
+    function($scope, storeFactory, baseURL, favoriteFactory, $ionicListDelegate){
     $scope.baseURL = baseURL;
     $scope.tab = 1;
     $scope.filtText = 'store';
@@ -470,6 +523,41 @@ angular.module('kangFu.controllers', [])
     $scope.isSelected = function (checkTab) {
       return ($scope.tab === checkTab);
     };
+
+    //add store id to favorites
+    $scope.addStoreFavorite = function(index){
+      console.log("store index is " + index);
+      favoriteFactory.addStoreToFavorites(index);
+      $ionicListDelegate.closeOptionButtons();
+
+      //$ionicPlatform.ready(function(){
+      //  //notify to user on status bars
+      //  $cordovaLocalNotification.schedule({
+      //    id: 1,
+      //    title: "添加收藏",
+      //    text: $scope.healers[index].name
+      //  }).then(function () {
+      //      console.log('Added Favorite '+$scope.healers[index].name);
+      //    },
+      //    function () {
+      //      console.log('Failed to add Notification ');
+      //    });
+      //
+      //  //Toast to user
+      //  $cordovaToast.show('添加收藏 ' + $scope.healers[index].name, 'long', 'center')
+      //    .then(function(success){
+      //        //success
+      //        console.log('Show Success!');
+      //      },
+      //      function(error){
+      //        //error
+      //        console.log('Show error!');
+      //      }
+      //    );
+      //});
+
+    };
+
   }])
 
   .controller('StoreDetailController', ['$scope', 'storeFactory', 'baseURL', '$stateParams', '$ionicSlideBoxDelegate',

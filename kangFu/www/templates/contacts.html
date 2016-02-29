@@ -1,5 +1,20 @@
 <ion-view view-title="联系人管理">
-  <ion-content >
+  <div class="bar-subheader">
+    <div class="list">
+      <div class="item item-avatar-left" style="height: 150px;background-image: url(../img/bg_doctor_detail.jpg); background-size: 100% 100%;">
+      </div>
+    </div>
+  </div>
+
+  <!--top tab-->
+  <div class="tabs-striped tabs-color-royal tabs-top tabs-top-under-subheader">
+    <div class="tabs">
+      <a class="tab-item" ng-class="{active:isSelected(1)}" ng-click="select(1)">康复项目</a>
+      <a class="tab-item" ng-class="{active:isSelected(2)}" ng-click="select(2)">介绍</a>
+    </div>
+  </div>
+
+  <ion-content class="has-subheader">
   <h1>联系人管理</h1>
   </ion-content>
 

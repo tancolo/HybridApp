@@ -1,6 +1,6 @@
 angular.module('kangFu.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, accountFactory, baseURL) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -39,6 +39,20 @@ angular.module('kangFu.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+
+  //get the account info from service
+  $scope.baseURL = baseURL;
+  $scope.message = "Loading...";
+
+  $scope.account = accountFactory.getAccountInfo().get({id: 0})
+    .$promise.then(function(response){
+        $scope.account = response;
+        console.log("account:1111 " + JSON.stringify($scope.account));
+      },
+      function(error) {
+        $scope.message = "Error: " + error.status + "  " + error.statusText;
+      });
+
 })
 
 .controller('ProjectController', ['$scope', 'projectFactory', 'baseURL', function($scope, projectFactory, baseURL){
@@ -643,19 +657,20 @@ angular.module('kangFu.controllers', [])
   .controller('AccountController', ['$scope', 'accountFactory', 'baseURL',
     function($scope, accountFactory, baseURL){
 
-      $scope.baseURL = baseURL;
-      $scope.tab = 1;
-      $scope.filtText = '';
-      $scope.message = "Loading...";
+      //因为在AppCtr中已经获得了accountFactory信息，所以就不需要在这里再次获取了
+      //$scope.baseURL = baseURL;
+      //$scope.tab = 1;
+      //$scope.filtText = '';
+      //$scope.message = "Loading...";
 
-      $scope.account = accountFactory.getAccountInfo().get({id: 0})
-        .$promise.then(function(response){
-          $scope.account = response;
-          console.log("account: " + JSON.stringify($scope.account));
-        },
-        function(error) {
-          $scope.message = "Error: " + error.status + "  " + error.statusText;
-        });
+      //$scope.account = accountFactory.getAccountInfo().get({id: 0})
+      //  .$promise.then(function(response){
+      //    $scope.account = response;
+      //    console.log("account: " + JSON.stringify($scope.account));
+      //  },
+      //  function(error) {
+      //    $scope.message = "Error: " + error.status + "  " + error.statusText;
+      //  });
 
       $scope.recordEmpty = true;
       //tabs option

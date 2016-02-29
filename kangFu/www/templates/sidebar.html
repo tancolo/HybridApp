@@ -47,19 +47,19 @@
         <ion-item menu-close class="item item-icon-left" href="#/app/account">
           <i style="color: #387ef5;" class="icon ion-social-yen"></i>
           我的账户
-          <span class="item-note">余额: 0.00元</span>
+          <span class="item-note">余额: {{account.balance}}元</span>
         </ion-item>
 
         <ion-item menu-close class="item item-icon-left" href="#/app/points">
           <i style="color: #387ef5;" class="icon ion-android-star"></i>
           我的积分
-          <span style="background-color: yellow; color: darkblue" class="badge badge-positive">120</span>
+          <span style="background-color: yellow; color: darkblue" class="badge badge-positive">{{account.points}}</span>
         </ion-item>
 
         <ion-item menu-close class="item item-icon-left" href="#/app/coupons">
           <i style="color: #387ef5;" class="icon ion-bag"></i>
           优惠券
-          <span class="badge badge-positive">0</span>
+          <span class="badge badge-positive">{{account.coupon}}</span>
         </ion-item>
 
         <ion-item menu-close class="item item-icon-left" href="#/app/contacts">

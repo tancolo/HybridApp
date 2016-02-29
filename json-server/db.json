@@ -1366,7 +1366,9 @@
           "time": ""
         }
       ],
-      "balance": "100.00"
+      "balance": "100.00",
+      "points": 120,
+      "coupon": 0
     }
   ],
   "feedback": []

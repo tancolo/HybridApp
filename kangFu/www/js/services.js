@@ -140,5 +140,20 @@ angular.module('kangFu.services', ['ngResource'])
   //
   //  return partnersFac;
   //}])
+
+  .factory('accountFactory', ['$resource', 'baseURL', function($resource, baseURL){
+
+    var accountFac = {};
+
+    accountFac.getAccountInfo = function(){
+      return $resource(baseURL + "account/:id", null, {'update':{method:'PUT'}})
+    };
+
+    return accountFac;
+  }])
+
+
+
+
 ;
 

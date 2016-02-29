@@ -640,6 +640,47 @@ angular.module('kangFu.controllers', [])
 
   }])
 
+  .controller('AccountController', ['$scope', 'accountFactory', 'baseURL',
+    function($scope, accountFactory, baseURL){
+
+      $scope.baseURL = baseURL;
+      $scope.tab = 1;
+      $scope.filtText = '';
+      $scope.message = "Loading...";
+
+      $scope.account = accountFactory.getAccountInfo().get({id: 0})
+        .$promise.then(function(response){
+          $scope.account = response;
+          console.log("account: " + JSON.stringify($scope.account));
+        },
+        function(error) {
+          $scope.message = "Error: " + error.status + "  " + error.statusText;
+        });
+
+      $scope.recordEmpty = true;
+      //tabs option
+      $scope.select = function (setTab) {
+        $scope.tab = setTab;
+
+        switch(setTab){
+          case 2:
+            break;
+          case 3:
+            break;
+          case 4:
+            break;
+          default:
+            break;
+        }
+      };
+
+      $scope.isSelected = function (checkTab) {
+        //console.log("isSelected checkTab: " + checkTab);
+        return ($scope.tab === checkTab);
+      };
+
+  }])
+
 
 
 

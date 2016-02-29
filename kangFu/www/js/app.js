@@ -104,7 +104,8 @@ angular.module('kangFu', ['ionic', 'ngCordova', 'kangFu.controllers', 'kangFu.se
       url: '/account',
       views: {
         'mainContent': {
-          templateUrl: 'templates/account.html'
+          templateUrl: 'templates/account.html',
+          controller: "AccountController"
         }
       }
     })
@@ -154,5 +155,5 @@ angular.module('kangFu', ['ionic', 'ngCordova', 'kangFu.controllers', 'kangFu.se
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/favorites');
+  $urlRouterProvider.otherwise('/app/account');
 });

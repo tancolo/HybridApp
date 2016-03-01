@@ -672,6 +672,7 @@ angular.module('kangFu.controllers', [])
       //    $scope.message = "Error: " + error.status + "  " + error.statusText;
       //  });
 
+      $scope.tab = 1;
       $scope.recordEmpty = true;
       //tabs option
       $scope.select = function (setTab) {

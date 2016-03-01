@@ -138,6 +138,17 @@ angular.module('kangFu', ['ionic', 'ngCordova', 'kangFu.controllers', 'kangFu.se
       }
     })
 
+    //没有使用
+    .state('app.contactDetails', {
+      url: '/contacts/:id'
+      //views: {
+      //  'mainContent': {
+      //    templateUrl: 'templates/contacts.html',
+      //    controller: 'ContactsController'
+      //  }
+      //}
+    })
+
     .state('app.favorites', {
       url: '/favorites',
       views: {

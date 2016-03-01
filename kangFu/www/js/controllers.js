@@ -724,8 +724,8 @@ angular.module('kangFu.controllers', [])
 
   }])
 
-  .controller('ContactsController', ['$scope', 'contactsFactory', 'baseURL', '$ionicModal', '$timeout',
-    function($scope, contactsFactory, baseURL, $ionicModal, $timeout){
+  .controller('ContactsController', ['$scope', 'contactsFactory', 'baseURL', '$ionicModal', '$timeout', '$stateParams',
+    function($scope, contactsFactory, baseURL, $ionicModal, $timeout, $stateParams){
 
     $scope.baseURL = baseURL;
     $scope.message = "Loading ...";
@@ -745,9 +745,21 @@ angular.module('kangFu.controllers', [])
         $scope.message = "Error: " + error.status + "  " + error.statusText;
       });
 
+
       //set the contact_adding template view
       // Form data for the contacts modal
       $scope.contact = {};
+      //$scope.initContact = function() {
+      //  $scope.contact.name = "";
+      //  $scope.contact.telephone = "";
+      //  $scope.contact.gender = '男';
+      //  $scope.contact.address = {};
+      //  $scope.contact.address.city = "北京北京市东城区";
+      //  $scope.contact.address.road = "王府井大街300号";
+      //  $scope.contact.address.neighborhood = "";
+      //  //full address
+      //  $scope.contact.fullAddress = "";
+      //};
       $scope.contact.name = "";
       $scope.contact.telephone = "";
       $scope.contact.gender = '男';
@@ -777,6 +789,8 @@ angular.module('kangFu.controllers', [])
       // Triggered in the contacts modal to close it
       $scope.closeContact = function() {
         $scope.contactform.hide();
+        //$scope.contact = {};//关闭modal后，需要清空contact内容
+        //$scope.contact.gender = '男';
       };
 
       // Perform the submit action when the user submits the contacts form
@@ -799,6 +813,9 @@ angular.module('kangFu.controllers', [])
         if($scope.needUpdate) {
           console.log("modal hidden, AND get contacts again. for update the view page");
 
+          //$scope.contact = {};//关闭modal后，需要清空contact内容
+          //$scope.contact.gender = '男';
+
           contactsFactory.getContacts().query(
             function(response){
               $scope.contacts = response;
@@ -813,7 +830,33 @@ angular.module('kangFu.controllers', [])
         }
       });
 
-      //选中编辑某个地址
+      //选中编辑某个地址，需要共用contactModal
+      $scope.doEdit = function(selectedContact){
+        $scope.contact = selectedContact;//contact重新获取数据
+        console.log("edit contact: " + JSON.stringify($scope.contact));
+
+        //open contact Modal
+        $scope.addContacts();
+      };
+
+     //删除某个地址
+    $scope.doDelete = function(selectedContact) {
+      console.log("delete contact: " + JSON.stringify(selectedContact));
+
+      contactsFactory.getContacts().remove(selectedContact);
+      //contactsFactory.deleteContacts().delete(selectedContact);
+
+      //contactsFactory.getContacts().query(
+      //  function(response){
+      //    $scope.contacts = response;
+      //    //console.log("get contacts success! " + JSON.stringify($scope.contacts));
+      //    console.log("get contacts success again!");
+      //  },
+      //  function(error){
+      //    $scope.message = "Error: " + error.status + "  " + error.statusText;
+      //  });
+    };
+
 
   }])
     //自定义groupedRadio button

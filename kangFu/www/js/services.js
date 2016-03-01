@@ -163,12 +163,21 @@ angular.module('kangFu.services', ['ngResource'])
 
   }])
 
-  .service('contactsFactory', ['$resource', 'baseURL', function($resource, baseURL){
+  .factory('contactsFactory', ['$resource', 'baseURL', function($resource, baseURL){
     var contactsFac = {};
 
     contactsFac.getContacts = function(){
-      return $resource(baseURL + "contacts/:id", null, {'save': {method: 'POST'}});
+      return $resource(baseURL + "contacts/:id", null,
+        {
+          'save': {method: 'POST'},
+          'remove': {method: 'DELETE' }
+        }
+      );
     };
+    //contactsFac.deleteContacts = function(){
+    //  console.log("call deleteContacts");
+    //  return $resource(baseURL + "contacts/:id", null, {'delete': {method: 'DELETE' }});
+    //};
 
     return contactsFac;
   }])

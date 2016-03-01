@@ -132,7 +132,8 @@ angular.module('kangFu', ['ionic', 'ngCordova', 'kangFu.controllers', 'kangFu.se
       url: '/contacts',
       views: {
         'mainContent': {
-          templateUrl: 'templates/contacts.html'
+          templateUrl: 'templates/contacts.html',
+          controller: 'ContactsController'
         }
       }
     })
@@ -156,5 +157,6 @@ angular.module('kangFu', ['ionic', 'ngCordova', 'kangFu.controllers', 'kangFu.se
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/points');
+  $urlRouterProvider.otherwise('/app/contacts');
 });
+

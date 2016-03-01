@@ -724,6 +724,22 @@ angular.module('kangFu.controllers', [])
 
   }])
 
+  .controller('ContactsController', ['$scope', 'contactsFactory', 'baseURL', function($scope, contactsFactory, baseURL){
+
+    $scope.baseURL = baseURL;
+    $scope.message = "Loading ...";
+
+    contactsFactory.getContacts().query(
+      function(response){
+        $scope.contacts = response;
+        console.log("get contacts success! " + JSON.stringify($scope.contacts));
+      },
+      function(error){
+        $scope.message = "Error: " + error.status + "  " + error.statusText;
+      })
+
+  }])
+
 
 
 ;

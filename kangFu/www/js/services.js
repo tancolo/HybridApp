@@ -163,6 +163,19 @@ angular.module('kangFu.services', ['ngResource'])
 
   }])
 
+  .factory('contactsFactory', ['$resource', 'baseURL', function($resource, baseURL){
+    var contactsFac = {};
+
+    contactsFac.getContacts = function(){
+      return $resource(baseURL + "contacts/:id", null, {'save': {method: 'POST'}});
+    };
+
+    return contactsFac;
+
+  }])
+
+
+
 
 
 ;

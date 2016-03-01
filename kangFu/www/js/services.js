@@ -163,7 +163,7 @@ angular.module('kangFu.services', ['ngResource'])
 
   }])
 
-  .factory('contactsFactory', ['$resource', 'baseURL', function($resource, baseURL){
+  .service('contactsFactory', ['$resource', 'baseURL', function($resource, baseURL){
     var contactsFac = {};
 
     contactsFac.getContacts = function(){
@@ -171,7 +171,6 @@ angular.module('kangFu.services', ['ngResource'])
     };
 
     return contactsFac;
-
   }])
 
 

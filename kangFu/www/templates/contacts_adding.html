@@ -1,0 +1,57 @@
+<ion-modal-view>
+
+  <ion-header-bar class="bar-royal">
+    <h1 class="title">增加地址</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeContact()">关闭</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+    <form id="contactForm" name="contactForm" ng-submit="doSubmit()" novalidate>
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">姓名</span>
+          <input type="text" ng-model="contact.name" placeholder="shirmp colo" id="name" name="name" required>
+          <span ng-show="contactForm.name.$error.required && !contactForm.name.$pristine" style="color: red;">姓名不能为空</span>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">电话</span>
+          <input type="tel" ng-model="contact.telephone" placeholder="12345678910" id="tele" name="tele" required>
+          <span ng-show="contactForm.tele.$error.required && !contactForm.tele.$pristine" style="color: red;">号码不能为空</span>
+        </label>
+
+        <div class="item">
+          <span class="input-label">性别</span>
+          <div class="button-bar">
+            <a grouped-radio="'male'" ng-model="contact.gender">男</a>
+            <a grouped-radio="'female'" ng-model="contact.gender">女</a>
+          </div>
+        </div>
+
+        <a class="item item-input item-icon-right" href="#">
+          <span class="input-label" ng-model="contact.address.city">省/市/区:&nbsp;&nbsp;{{contact.address.city}}</span>
+          <i style="font-size: 90%" class="icon ion-ios-arrow-right"></i>
+        </a>
+
+        <a class="item item-input item-icon-right" href="#">
+          <span style="font-size: 80%" class="input-label" ng-model="contact.address.road">街道/住宅区:&nbsp;&nbsp;{{contact.address.road}}</span>
+          <i style="font-size: 90%" class="icon ion-ios-location-outline"></i>
+        </a>
+
+        <label class="item item-input">
+          <span style="font-size: 80%" class="input-label" >单元/楼层/门牌号:</span>
+          <input style="font-size: 80%" type="text" ng-model="contact.address.neighborhood"
+                 placeholder="1栋1单元101室" id="neighbor" name="neighbor" required class="my-input">
+          <!--<span ng-show="contactForm.neighbor.$error.required && !contactForm.neighbor.$pristine" style="color: red;font-size: 80%">门牌号不能为空</span>-->
+        </label>
+      </div>
+
+      <button class="button button-block button-royal" ng-disabled="contactForm.$invalid">
+        提交
+      </button>
+    </form>
+
+  </ion-content>
+
+</ion-modal-view>

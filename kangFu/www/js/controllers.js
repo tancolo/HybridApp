@@ -724,7 +724,8 @@ angular.module('kangFu.controllers', [])
 
   }])
 
-  .controller('ContactsController', ['$scope', 'contactsFactory', 'baseURL', function($scope, contactsFactory, baseURL){
+  .controller('ContactsController', ['$scope', 'contactsFactory', 'baseURL', '$ionicModal', '$timeout',
+    function($scope, contactsFactory, baseURL, $ionicModal, $timeout){
 
     $scope.baseURL = baseURL;
     $scope.message = "Loading ...";
@@ -738,8 +739,74 @@ angular.module('kangFu.controllers', [])
         $scope.message = "Error: " + error.status + "  " + error.statusText;
       })
 
-  }])
+      //set the contact_adding template view
+      // Form data for the contacts modal
+      $scope.contact = {};
+      $scope.contact.name = "";
+      $scope.contact.telephone = "";
+      $scope.contact.gender = 'male';
+      $scope.contact.address = {};
+      $scope.contact.address.city = "北京北京市东城区";
+      $scope.contact.address.road = "王府井大街300号";
+      $scope.contact.address.neighborhood = "";
 
+      // Create the contacts modal that we will use later
+      $ionicModal.fromTemplateUrl('templates/contacts_adding.html', {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.contactform = modal;
+      });
+
+      // Open the contacts modal
+      $scope.addContacts = function() {
+        $scope.contactform.show();
+        console.log('contacts form show!');
+      };
+
+      // Triggered in the contacts modal to close it
+      $scope.closeContact = function() {
+        $scope.contactform.hide();
+      };
+
+      // Perform the submit action when the user submits the contacts form
+      $scope.doSubmit = function() {
+        console.log('Doing submit... ... ' + JSON.stringify($scope.contact));
+
+        contactsFactory.getContacts().save($scope.contact);
+
+        //模拟网络超时 1s钟关闭model
+        $timeout(function() {
+          $scope.closeContact();
+        }, 1000);
+      };
+
+  }])
+    //自定义groupedRadio button
+  .directive('groupedRadio', function() {
+    return {
+      restrict: 'A',
+      require: 'ngModel',
+      scope: {
+        model: '=ngModel',
+        value: '=groupedRadio'
+      },
+      link: function(scope, element, attrs, ngModelCtrl) {
+        element.addClass('button');
+        element.on('click', function(e) {
+          scope.$apply(function() {
+            ngModelCtrl.$setViewValue(scope.value);
+          });
+        });
+
+        scope.$watch('model', function(newVal) {
+          element.removeClass('button-positive');
+          if (newVal === scope.value) {
+            element.addClass('button-positive');
+          }
+        });
+      }
+    };
+  })
 
 
 ;

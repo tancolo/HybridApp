@@ -171,6 +171,21 @@
   /*top: 206px !important;*/
 /*}*/
 
+/*圆角 radio button*/
+.button-bar > .button:last-child {
+  border-radius: 0px 20px 20px 0px !important;
+}
+.button-bar > .button:first-child {
+  border-radius: 20px 0px 0px 20px !important;
+}
 
-
+/*input输入框，非法输入后的颜色提示*/
+.my-input {
+  /*transition:all linear 0.5s;*/
+  background: transparent;
+}
+.my-input.ng-invalid {
+  /*background: red;*/
+  border: 1px solid red !important;
+}
 

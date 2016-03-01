@@ -1371,5 +1371,28 @@
       "coupon": 0
     }
   ],
+  "points": [
+    {
+      "id": 0,
+      "category": "event",
+      "event": "第一次添加头像",
+      "point": 10,
+      "date": "2016-02-17T20:52:22.556094Z"
+    },
+    {
+      "id": 1,
+      "category": "event",
+      "event": "第一次添加姓名",
+      "point": 10,
+      "date": "2016-02-17T20:52:41.556094Z"
+    },
+    {
+      "id": 2,
+      "category": "event",
+      "event": "第一次添加联系人",
+      "point": 50,
+      "date": "2016-02-23T09:39:47.556094Z"
+    }
+  ],
   "feedback": []
 }

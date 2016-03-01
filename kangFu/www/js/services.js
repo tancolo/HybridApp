@@ -152,6 +152,16 @@ angular.module('kangFu.services', ['ngResource'])
     return accountFac;
   }])
 
+  .factory('pointsFactory', ['$resource', 'baseURL', function($resource, baseURL){
+    var pointsFac = {};
+
+    pointsFac.getPoints = function(){
+      return $resource(baseURL + "points/:id", null, {'update':{method:'PUT'}})
+    };
+
+    return pointsFac;
+
+  }])
 
 
 

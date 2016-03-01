@@ -697,7 +697,32 @@ angular.module('kangFu.controllers', [])
 
   }])
 
+  .controller('PointsController', ['$scope', 'pointsFactory', 'baseURL', function($scope, pointsFactory, baseURL){
 
+    $scope.baseURL = baseURL;
+    $scope.message = "Loading ...";
+    $scope.filterDate = "-date";
+
+    pointsFactory.getPoints().query(
+      function(response){
+        $scope.points = response;
+        console.log('get the points!');
+      },
+      function(error){
+        $scope.message = "Error: " + error.status + "  " + error.statusText;
+      });
+
+    //$scope.point = pointsFactory.getPoints().get({id: 2})
+    //  .$promise.then(
+    //    function(response){
+    //      $scope.point = response;
+    //      console.log('get the point： ' + JSON.stringify($scope.point));
+    //    },
+    //    function(error){
+    //      $scope.message = "Error: " + error.status + "  " + error.statusText;
+    //    });
+
+  }])
 
 
 

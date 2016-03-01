@@ -730,25 +730,36 @@ angular.module('kangFu.controllers', [])
     $scope.baseURL = baseURL;
     $scope.message = "Loading ...";
 
+    $scope.$on('$ionicView.enter', function() {
+      console.log("enter this view");
+    });
+
+
     contactsFactory.getContacts().query(
       function(response){
         $scope.contacts = response;
-        console.log("get contacts success! " + JSON.stringify($scope.contacts));
+        //console.log("get contacts success! " + JSON.stringify($scope.contacts));
+        console.log("get contacts success!");
       },
       function(error){
         $scope.message = "Error: " + error.status + "  " + error.statusText;
-      })
+      });
 
       //set the contact_adding template view
       // Form data for the contacts modal
       $scope.contact = {};
       $scope.contact.name = "";
       $scope.contact.telephone = "";
-      $scope.contact.gender = 'male';
+      $scope.contact.gender = '男';
       $scope.contact.address = {};
       $scope.contact.address.city = "北京北京市东城区";
       $scope.contact.address.road = "王府井大街300号";
       $scope.contact.address.neighborhood = "";
+      //full address
+      $scope.contact.fullAddress = "";
+
+      //for reload contacts
+      $scope.needUpdate = false;
 
       // Create the contacts modal that we will use later
       $ionicModal.fromTemplateUrl('templates/contacts_adding.html', {
@@ -771,14 +782,38 @@ angular.module('kangFu.controllers', [])
       // Perform the submit action when the user submits the contacts form
       $scope.doSubmit = function() {
         console.log('Doing submit... ... ' + JSON.stringify($scope.contact));
+        $scope.contact.fullAddress = $scope.contact.address.city + $scope.contact.address.road + $scope.contact.address.neighborhood;
 
         contactsFactory.getContacts().save($scope.contact);
+        $scope.needUpdate = true;
 
         //模拟网络超时 1s钟关闭model
         $timeout(function() {
           $scope.closeContact();
         }, 1000);
       };
+
+      // Execute action on hide modal 需要重新获取contacts 数据，用于刷新页面
+      $scope.$on('modal.hidden', function() {
+        // Execute action
+        if($scope.needUpdate) {
+          console.log("modal hidden, AND get contacts again. for update the view page");
+
+          contactsFactory.getContacts().query(
+            function(response){
+              $scope.contacts = response;
+              //console.log("get contacts success! " + JSON.stringify($scope.contacts));
+              console.log("get contacts success again!");
+            },
+            function(error){
+              $scope.message = "Error: " + error.status + "  " + error.statusText;
+            });
+
+          $scope.needUpdate = false;
+        }
+      });
+
+      //选中编辑某个地址
 
   }])
     //自定义groupedRadio button

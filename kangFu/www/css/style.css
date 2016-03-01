@@ -189,3 +189,11 @@
   border: 1px solid red !important;
 }
 
+/*p标签的下划线效果*/
+p.myUnderline
+{
+  border: 0px solid darkgray;
+  border-bottom-width: 1px;
+  background-color: transparent;
+  padding-bottom: 10px;
+}

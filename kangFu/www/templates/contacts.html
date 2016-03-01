@@ -7,7 +7,19 @@
   </ion-nav-buttons>
 
   <ion-content>
-  <h1>联系人管理</h1>
+    <ion-list>
+      <ion-item ng-repeat="contact in contacts">
+        <p style="float: right">{{contact.telephone}}</p>
+        <p>{{contact.name}} &nbsp; &nbsp;({{contact.gender}})</p>
+        <p class="myUnderline" style="color: darkgray;margin-top: 10px">地址: &nbsp;&nbsp; {{contact.fullAddress}}</p>
+
+        <p style="float: right; margin-top: 10px;margin-right: 20px">
+          <a class="subdued button button-small" ng-click="doEdit()"><i class="icon ion-edit"></i></a>
+          <a class="subdued button button-small" style="margin-left: 10px" ng-click="doDelete()"><i class="icon ion-android-delete"></i></a>
+        </p>
+      </ion-item>
+    </ion-list>
+
   </ion-content>
 
 </ion-view>

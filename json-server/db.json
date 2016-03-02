@@ -1394,19 +1394,6 @@
       "date": "2016-02-23T09:39:47.556094Z"
     }
   ],
-  "contacts": [
-    {
-      "name": "谈",
-      "telephone": 4653978,
-      "gender": "女",
-      "address": {
-        "city": "北京北京市东城区",
-        "road": "王府井大街300号",
-        "neighborhood": "测试地下室"
-      },
-      "fullAddress": "北京北京市东城区王府井大街300号测试地下室",
-      "id": 3
-    }
-  ],
+  "contacts": [],
   "feedback": []
 }

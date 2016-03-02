@@ -724,8 +724,8 @@ angular.module('kangFu.controllers', [])
 
   }])
 
-  .controller('ContactsController', ['$scope', 'contactsFactory', 'baseURL', '$ionicModal', '$timeout', '$stateParams',
-    function($scope, contactsFactory, baseURL, $ionicModal, $timeout, $stateParams){
+  .controller('ContactsController', ['$scope', 'contactsFactory', 'baseURL', '$ionicModal', '$timeout', '$ionicPopup',
+    function($scope, contactsFactory, baseURL, $ionicModal, $timeout, $ionicPopup){
 
     $scope.baseURL = baseURL;
     $scope.message = "Loading ...";
@@ -830,31 +830,84 @@ angular.module('kangFu.controllers', [])
         }
       });
 
-      //选中编辑某个地址，需要共用contactModal
-      $scope.doEdit = function(selectedContact){
-        $scope.contact = selectedContact;//contact重新获取数据
-        console.log("edit contact: " + JSON.stringify($scope.contact));
+      /*选中编辑某个地址，简单方式是共用contactModal， 但是在实际实现中，因为共用contact这个变量，会导致在新增、编辑、删除
+      之间切换的时候发生问题。简单起见，直接再新增一个editModal，用于编辑修改地址。
+       */
+      $scope.contactEdit = {};
 
-        //open contact Modal
-        $scope.addContacts();
+      // Create the contacts edit modal that we will use later
+      $ionicModal.fromTemplateUrl('templates/contacts_editing.html', {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.editform = modal;
+      });
+
+      // Open the contacts modal
+      $scope.openEditForm = function() {
+        $scope.editform.show();
+        console.log('contacts edit form show!');
+      };
+
+      // Triggered in the contacts modal to close it
+      $scope.closeEditForm = function() {
+        $scope.editform.hide();
+      };
+
+      $scope.doEdit = function(selectedContact){
+        $scope.contactEdit = selectedContact;//contactEdit获取数据
+        console.log("edit contact: " + JSON.stringify($scope.contactEdit));
+
+        //open contact edit Modal
+        $scope.openEditForm();
+      };
+
+      // Perform the submit action when the user modify the contacts form
+      $scope.doEditSubmit = function() {
+        console.log('Doing Edit submit... ... ' + JSON.stringify($scope.contactEdit));
+        $scope.contactEdit.fullAddress = $scope.contactEdit.address.city + $scope.contactEdit.address.road + $scope.contactEdit.address.neighborhood;
+
+        contactsFactory.getContacts().save($scope.contactEdit);
+        //$scope.needUpdate = true;
+
+        //模拟网络超时 1s钟关闭model
+        $timeout(function() {
+          $scope.closeEditForm();
+        }, 1000);
       };
 
      //删除某个地址
     $scope.doDelete = function(selectedContact) {
       console.log("delete contact: " + JSON.stringify(selectedContact));
 
-      contactsFactory.getContacts().remove(selectedContact);
-      //contactsFactory.deleteContacts().delete(selectedContact);
+      var confirmPopup = $ionicPopup.confirm({
+        title: '删 除',
+        template: '确认删除该地址？',
+        okText: '确定',
+        cancelText: '取消'
+      });
 
-      //contactsFactory.getContacts().query(
-      //  function(response){
-      //    $scope.contacts = response;
-      //    //console.log("get contacts success! " + JSON.stringify($scope.contacts));
-      //    console.log("get contacts success again!");
-      //  },
-      //  function(error){
-      //    $scope.message = "Error: " + error.status + "  " + error.statusText;
-      //  });
+      confirmPopup.then(function(res){
+        if (res) {
+          console.log('Ok to delete selected contact');
+          contactsFactory.getContacts().remove(selectedContact);
+
+          $timeout(function() {
+            contactsFactory.getContacts().query(
+              function(response){
+                $scope.contacts = response;
+                console.log("get contacts success again! " + JSON.stringify($scope.contacts));
+                //console.log("after deleting THEN get contacts success again!");
+              },
+              function(error){
+                $scope.message = "Error: " + error.status + "  " + error.statusText;
+              });
+
+          }, 1000);
+
+        } else {
+          console.log('Delete selected contact Cancel');
+        }
+      });
     };
 
 

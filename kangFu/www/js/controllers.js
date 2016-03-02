@@ -748,27 +748,28 @@ angular.module('kangFu.controllers', [])
 
       //set the contact_adding template view
       // Form data for the contacts modal
-      $scope.contact = {};
-      //$scope.initContact = function() {
-      //  $scope.contact.name = "";
-      //  $scope.contact.telephone = "";
-      //  $scope.contact.gender = '男';
-      //  $scope.contact.address = {};
-      //  $scope.contact.address.city = "北京北京市东城区";
-      //  $scope.contact.address.road = "王府井大街300号";
-      //  $scope.contact.address.neighborhood = "";
-      //  //full address
-      //  $scope.contact.fullAddress = "";
-      //};
-      $scope.contact.name = "";
-      $scope.contact.telephone = "";
-      $scope.contact.gender = '男';
-      $scope.contact.address = {};
-      $scope.contact.address.city = "北京北京市东城区";
-      $scope.contact.address.road = "王府井大街300号";
-      $scope.contact.address.neighborhood = "";
-      //full address
-      $scope.contact.fullAddress = "";
+      $scope.initContact = function() {
+        console.log("init the contact info...\n");
+        $scope.contact = {};
+        $scope.contact.name = "";
+        $scope.contact.telephone = "";
+        $scope.contact.gender = '男';
+        $scope.contact.address = {};
+        $scope.contact.address.city = "北京北京市东城区";
+        $scope.contact.address.road = "王府井大街300号";
+        $scope.contact.address.neighborhood = "";
+        //full address
+        $scope.contact.fullAddress = "";
+      };
+      //$scope.contact.name = "";
+      //$scope.contact.telephone = "";
+      //$scope.contact.gender = '男';
+      //$scope.contact.address = {};
+      //$scope.contact.address.city = "北京北京市东城区";
+      //$scope.contact.address.road = "王府井大街300号";
+      //$scope.contact.address.neighborhood = "";
+      ////full address
+      //$scope.contact.fullAddress = "";
 
       //for reload contacts
       $scope.needUpdate = false;
@@ -782,8 +783,13 @@ angular.module('kangFu.controllers', [])
 
       // Open the contacts modal
       $scope.addContacts = function() {
+        $scope.initContact();
+
         $scope.contactform.show();
         console.log('contacts form show!');
+
+        //$scope.contact = {};//每次进入新增modal，需要清空contact内容
+        //$scope.contact.gender = '男';
       };
 
       // Triggered in the contacts modal to close it

@@ -26,7 +26,8 @@
       "locator": "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
       "id": "cordova-plugin-x-toast"
     },
-    "cordova-plugin-vibration"
+    "cordova-plugin-vibration",
+    "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
     "android"

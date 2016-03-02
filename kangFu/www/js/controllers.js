@@ -945,5 +945,11 @@ angular.module('kangFu.controllers', [])
     };
   })
 
+  .controller('SettingsController', ['$scope', 'baseURL', function($scope, baseURL){
+    //$scope.baseURL = baseURL;
+    //var settingFac = {};
+    //
+    //return settingFac;
+    }])
 
 ;

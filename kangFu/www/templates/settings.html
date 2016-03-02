@@ -1,5 +1,82 @@
 <ion-view view-title="设置">
   <ion-content>
-    <h1>设置</h1>
+
+    <ion-list>
+      <ion-item class="item item-toggle">
+        推送消息
+        <label class="toggle toggle-positive">
+          <input type="checkbox" checked="true">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+
+      <ion-item class="item item-icon-right">
+        欢迎页
+        <i style="font-size: 90%" class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+
+      <ion-item class="item item-icon-right">
+        免责协议
+        <i style="font-size: 90%" class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+
+      <!--社交相关内容-->
+      <ion-item class="item item-toggle">
+        微信绑定
+        <label class="toggle toggle-balanced">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+
+      <ion-item class="item item-toggle">
+        QQ绑定
+        <label class="toggle toggle-calm">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+
+      <ion-item class="item item-toggle">
+        微博绑定
+        <label class="toggle toggle-energized">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+
+      <ion-item class="item item-icon-right">
+        修改密码
+        <i style="font-size: 90%" class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+
+      <ion-item class="item item-icon-right">
+        修改支付密码
+        <i style="font-size: 90%" class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+
+      <ion-item class="item item-icon-right" ui-sref="app.aboutus">
+        关于我们
+        <i style="font-size: 90%" class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+
+      <ion-item class="item item-icon-right">
+        投诉建议
+        <i style="font-size: 90%" class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+    </ion-list>
+
+    <button class="button button-block button-royal">
+      退出登录
+    </button>
+
   </ion-content>
 </ion-view>

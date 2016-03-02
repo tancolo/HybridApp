@@ -197,3 +197,10 @@ p.myUnderline
   background-color: transparent;
   padding-bottom: 10px;
 }
+
+/*图片居中显示*/
+img.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}

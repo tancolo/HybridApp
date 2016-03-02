@@ -163,12 +163,24 @@ angular.module('kangFu', ['ionic', 'ngCordova', 'kangFu.controllers', 'kangFu.se
       url: '/settings',
       views: {
         'mainContent': {
-          templateUrl: 'templates/settings.html'
+          templateUrl: 'templates/settings.html',
+          controller: 'SettingsController'
         }
       }
-    });
+    })
+
+    .state('app.aboutus', {
+      url: '/aboutus',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/aboutus.html'
+        }
+      }
+    })
+
+  ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/contacts');
+  $urlRouterProvider.otherwise('/app/settings');
 })
 
 
